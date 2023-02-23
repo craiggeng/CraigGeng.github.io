@@ -369,12 +369,12 @@ audio {
   display: flex;
   -webkit-background-size: 75px 32px;
   -moz-background-size: 75px 32px;
-  background-size: 150px 32px;
+  background-size: 75px 32px;
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-mask-box-image: url("../img/logo.png");
   background-color: #fff;
-  width: 75px;
+  width: 150px;
   height: 32px;
   mask-image: url("../img/logo.png");
   mask-size: contain;
