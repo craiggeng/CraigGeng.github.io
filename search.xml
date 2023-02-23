@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Node.js学习笔记</title>
+      <link href="/2023/02/23/Note-Nodejs/"/>
+      <url>/2023/02/23/Note-Nodejs/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Node-js学习笔记"><a href="#Node-js学习笔记" class="headerlink" title="Node.js学习笔记"></a>Node.js学习笔记</h1><h3 id="1-Node-js安装与使用"><a href="#1-Node-js安装与使用" class="headerlink" title="1.Node.js安装与使用"></a>1.Node.js安装与使用</h3><p>1.Nodejs 可以使JS在服务器上运行（不仅仅是在浏览器上运行），用于编写服务器</p><p>2.Java多线程，一个顾客配一个服务员；Nodejs单线程，多个顾客只有一个服务员。</p><p>在服务器端最慢的是服务器和数据库之间的I&#x2F;O。Java中，服务器中的线程更多的时候在等I&#x2F;O</p><h6 id="3-Nodejs特点，单线程，异步，非阻塞；统一API（JS语言）"><a href="#3-Nodejs特点，单线程，异步，非阻塞；统一API（JS语言）" class="headerlink" title="3.Nodejs特点，单线程，异步，非阻塞；统一API（JS语言）"></a>3.Nodejs特点，单线程，异步，非阻塞；统一API（JS语言）</h6><p>4.nvm，用于切换node版本  命令：nvm install latest安装最新版本，nvm install –lts安装稳定版本，nvm ls 列出安装的node 版本，nvm use [别名stable&#x2F;system&#x2F;latest]……</p><p><strong>(整理安装步骤)</strong></p><p>5.node xxx.js 执行js文件</p><h3 id="2-异步"><a href="#2-异步" class="headerlink" title="2.异步"></a>2.异步</h3><p>进程和线程</p><ul><li>进程（厂房）</li><li>程序的运行的环境</li><li>线程（工人）</li><li>线程是实际进行运算的东西</li></ul><p>​    同步</p><ul><li>通常情况代码都是自上向下一行一行执行的</li><li>前边的代码不执行后边的代码也不会执行</li><li>同步的代码执行会出现阻塞的情况</li><li>一行代码执行慢会影响到整个程序的执行</li></ul><p>​    解决同步问题：</p><ul><li>java python</li><li>通过多线程来解决</li><li>node.js</li><li>通过异步方式来解决</li></ul><p>​    异步</p><ul><li>一段代码的执行不会影响到其他的程序</li><li>异步的问题：<br>异步的代码无法通过return来设置返回值</li><li>特点：<br>1.不会阻塞其他代码的执行<br>2.需要通过回调函数来返回结果</li><li>基于回调函数的异步带来的问题</li></ul><ol><li>代码的可读性差</li><li>可调试性差</li></ol><ul><li><p>解决问题：</p></li><li><p>需要一个东西，可以代替回调函数来给我们返回结果  [ ()&#x3D;&gt;{} ]</p></li><li><p>Promise横空出世</p></li><li><p>Promise是一个可以用来存储数据的对象<br>Promise存储数据的方式比较特殊，<br>这种特殊方式使得Promise可以用来存储异步调用的数据</p><ul><li><p>举例：现实生活<br>  1.点菜<br>  2.厨师做菜<br>  3.吃</p><h3 id="3-Promise"><a href="#3-Promise" class="headerlink" title="3.Promise"></a>3.Promise</h3></li></ul></li></ul><p>异步调用必须要通过回调函数来返回数据，</p><p>​        当我们进行一些复杂的调用的时，会出现“回调地狱”</p><p>问题：</p><p>​        异步必须通过回调函数来返回结果，回调函数一多就很痛苦</p><ul><li>创建Promise</li></ul><p>​        - Promise可以帮助我们解决异步中的回调函数的问题</p><p>​        - Promise就是一个用来存储数据的容器</p><p>​            它拥有着一套特殊的存取数据的方式</p><p>​            这个方式使得它里边可以存储异步调用的结果</p><pre><code class="js">const promise = new Promise((resolve, reject) =&gt; &#123;  // resolve 和 reject 是两个函数，通过这两个函数可以向Promise中存储数据  // resolve在执行正常时存储数据，reject在执行错误时存储数据  resolve(xxx)  reject(xxx)     &#125;</code></pre><ul><li>从Promise中读取数据</li></ul><p>​        - 可以通过Promise的实例方法then来读取Promise中存储的数据</p><p>​        - then需要两个回调函数作为参数，回调函数用来获取Promise中的数据</p><p>​            通过resolve存储的数据，会调用第一个函数返回，</p><p>​                可以在第一个函数中编写处理数据的代码</p><p>​            通过reject存储的数据或者出现异常时，会调用第二个函数返回</p><p>​                可以在第二个函数中编写处理异常的代码</p><pre><code class="js">promise.then((result) =&gt; &#123;    console.log(&quot;1&quot;, result)&#125;, (reason) =&gt; &#123;    console.log(&quot;2&quot;, reason)&#125;)</code></pre><ul><li><p>Promise中维护了两个隐藏属性：</p><p>​        <strong>PromiseResult</strong></p><p>​            - 用来存储数据（无论resolve传还是reject传）</p></li></ul><p>​        <strong>PromiseState</strong></p><p>​            - 记录Promise的状态（三种状态）</p><p>​                pending   （进行中）</p><p>​                fulfilled（完成） 通过resolve存储数据时</p><p>​                rejected（拒绝，出错了） 出错了或通过reject存储数据时</p><p>​            - state只能修改一次，修改以后永远不会在变</p><p>​</p><p>​        流程：</p><p>​            当Promise创建时，PromiseState初始值为pending，</p><p>​                当通过resolve存储数据时 PromiseState 变为fulfilled（完成）</p><p>​                    PromiseResult变为存储的数据</p><p>​                当通过reject存储数据或出错时 PromiseState 变为rejected（拒绝，出错了）</p><p>​                    PromiseResult变为存储的数据 或 异常对象</p><p>​            当我们通过then读取数据时，相当于为Promise设置了回调函数，</p><p>​                如果PromiseState变为fulfilled，则调用then的第一个回调函数来返回数据</p><p>​                如果PromiseState变为rejected，则调用then的第二个回调函数来返回数据</p><p>​            <strong>执行顺序 1.js正常代码，2. Promise.then() 3.setTimeout</strong></p><ul><li><strong>catch()</strong> 用法和then类似，但是只需要一个回调函数作为参数</li></ul><p>​        - catch()中的回调函数只会在Promise被拒绝时才调用</p><p>​        - catch() 相当于 then(null, reason &#x3D;&gt; {})</p><p>​        - catch() 就是一个专门处理Promise异常的方法</p><ul><li><strong>finally()</strong> 通常用来编写一些无论成功与否都要执行代码</li></ul><p>​        - 无论是正常存储数据还是出现异常了，finally总会执行</p><p>​        - 但是finally的回调函数中不会接收到数据</p><ul><li><p>promise中的</p><p>​        then (return new Promise())</p><p>​        catch</p><p>​        - 这三个方法都会返回一个新的Promise,</p><p>​            Promise中会存储回调函数的返回值</p><p>​        finally</p><p>​            - finally的返回值，不会存储到新的Promise中</p></li><li><p>对于Promise 的链式调用（.then &#x2F; .catch），如果得到的结果不是当前想要的结果，则跳过该调用，进入下一个。</p></li></ul><p>当Promise出现异常时，而整个调用链中没有出现catch，则异常会向外抛出</p><ul><li>Promise中的静态方法</li></ul><p>​        <strong>Promise.resolve()</strong> 创建一个立即完成的Promise</p><p>​        <strong>Promise.reject()</strong> 创建一个立即拒绝的Promise</p><p>​        <strong>Promise.all([…])</strong> 同时返回多个Promise的执行结果</p><p>​            其中有一个报错，就返回错误</p><p>​        <strong>Promise.allSettled([…])</strong> 同时返回多个Promise的执行结果(无论成功或失败)</p><p>​           {status: ‘fulfilled’, value: 579}</p><p>​           {status: ‘rejected’, reason: ‘哈哈’}</p><p>​        <strong>Promise.race([…])</strong> 返回执行<em>最快的</em>Promise（不考虑对错）*</p><p>​        <strong>Promise.any([…])</strong> 返回执行<em>最快的 且 完成的</em>Promise</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我的第一篇文章</title>
+      <link href="/2022/08/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+      <url>/2022/08/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+      
+        <content type="html"><![CDATA[<p>你好Hexo<br>你好世界<br><a href="https://craiggeng.github.io/">我的Github个人网站</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2022/08/31/hello-world/"/>
+      <url>/2022/08/31/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
