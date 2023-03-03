@@ -98,8 +98,14 @@
                                     <div class="timeline-content">
                                         <a class="timeline-title" target="_self" href="/2023/03/03/%E5%89%91%E6%8C%87offerDay01/">剑指offerDay01</a>
                                         <p>
-                                            剑指offerDay011.剑指offer 09 用两个栈实现队列
+                                            剑指offerDay01剑指offer 09 用两个栈实现队列
+💡思路：
 
+两个栈分别作用是入队栈、出队栈
+appendTail方法直接在入队栈内push
+deleteHead方法需要检查两个栈的长度，先判断出队栈，再判断入队栈。
+均为空 -&gt; 队列为空
+出队空，入队不空 -&gt; 先用out.push(in.pop)操作将入队栈的元素放入出队栈（两个栈的特性自然维护队列的特性），...
                                         </p>
                                     </div>
                                 </li>
