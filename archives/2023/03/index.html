@@ -77,7 +77,7 @@
                 <div class="content animated fadeIn">
                     <div class="set">
                         <h1 style="text-align: center">Archived</h1>
-                        <p style="text-align: center">「 4 」</p>
+                        <p style="text-align: center">「 5 」</p>
                         <ul class="timeline timeline-centered">
                             
                             
@@ -92,20 +92,42 @@
                                 
                                 <li class="timeline-item">
                                     <div class="timeline-info">
+                                        <span class="gradient-text">March 04, 2023</span>
+                                    </div>
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <a class="timeline-title" target="_self" href="/2023/03/04/%E5%89%91%E6%8C%87offerDay02/">剑指offerDay02</a>
+                                        <p>
+                                            剑指offerDay02——链表（简单）剑指offer 06 从尾到头打印链表
+💡思路：
+
+递归法，先递归到达链表尾部，再用push(head.val)将节点值添加进数组
+循环法，JS可以用数组的unshift方法来从头插入数据，也可以用push + reverse 操作
+
+/**
+ * Definition for singly-linked list.
+ * function List...
+                                        </p>
+                                    </div>
+                                </li>
+                            
+                                
+                                <li class="timeline-item">
+                                    <div class="timeline-info">
                                         <span class="gradient-text">March 03, 2023</span>
                                     </div>
                                     <div class="timeline-marker"></div>
                                     <div class="timeline-content">
                                         <a class="timeline-title" target="_self" href="/2023/03/03/%E5%89%91%E6%8C%87offerDay01/">剑指offerDay01</a>
                                         <p>
-                                            剑指offerDay01剑指offer 09 用两个栈实现队列
+                                            剑指offerDay01——栈与队列（简单）剑指offer 09 用两个栈实现队列
 💡思路：
 
 两个栈分别作用是入队栈、出队栈
 appendTail方法直接在入队栈内push
 deleteHead方法需要检查两个栈的长度，先判断出队栈，再判断入队栈。
 均为空 -&gt; 队列为空
-出队空，入队不空 -&gt; 先用out.push(in.pop)操作将入队栈的元素放入出队栈（两个栈的特性自然维护队列的特性），...
+出队空，入队不空 -&gt; 先用out.push(in.pop)操作将入队栈的元素放入出队栈（两个栈的特性自...
                                         </p>
                                     </div>
                                 </li>
