@@ -132,22 +132,22 @@
             
             <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
             
-            March 04, 2023
+            March 06, 2023
         </p>
         <h3 class="post-title animated fadeInDown">
-            <a href="/2023/03/04/%E5%89%91%E6%8C%87offerDay02/" title="剑指offerDay02" class="posttitle">剑指offerDay02</a></h3>
+            <a href="/2023/03/06/%E5%89%91%E6%8C%87offerDay03/" title="剑指offerDay03" class="posttitle">剑指offerDay03</a></h3>
         
         <p class="post-count animated fadeInDown">
             
             <span>
                 <b class="iconfont icon-text2"></b> <i>Words count</i>
-                4.1k
+                780
             </span>
             
             
             <span>
                 <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                4 mins.
+                1 mins.
             </span>
             
             
@@ -158,13 +158,15 @@
         
         <div class="md-content animated fadeIn">
             
-            <h1 id="剑指offerDay02——链表（简单）"><a href="#剑指offerDay02——链表（简单）" class="headerlink" title="剑指offerDay02——链表（简单）"></a>剑指offerDay02——链表（简单）</h1><h2 id="剑指offer-06-从尾到头打印链表"><a href="#剑指offer-06-从尾到头打印链表" class="headerlink" title="剑指offer 06 从尾到头打印链表"></a>剑指offer 06 从尾到头打印链表</h2><p></p>
+            <h1 id="剑指offerDay02——字符串（简单）"><a href="#剑指offerDay02——字符串（简单）" class="headerlink" title="剑指offerDay02——字符串（简单）"></a>剑指offerDay02——字符串（简单）</h1><h2 id="剑指offer-05-替换空格"><a href="#剑指offer-05-替换空格" class="headerlink" title="剑指offer 05 替换空格"></a>剑指offer 05 替换空格</h2><p></p>
 <p>💡思路：</p>
 <ul>
-<li>递归法，先递归到达链表尾部，再用push(head.val)将节点值添加进数组</li>
-<li>循环法，JS可以用数组的unshift...</li></ul>
+<li>新建一个StringBuilder，逐字符复制，遇到空格则用“%20”替代</li>
+<li>原地修改更省内存</li>
+</ul>
+<pre><code class="java">class Solution...</code></pre>
             
-            <span class="read-more"><a href="/2023/03/04/%E5%89%91%E6%8C%87offerDay02/" title="Read article" class="posttitle">Read article</a>
+            <span class="read-more"><a href="/2023/03/06/%E5%89%91%E6%8C%87offerDay03/" title="Read article" class="posttitle">Read article</a>
                 <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
@@ -185,6 +187,61 @@
 
     <div id="primary">
         
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            March 04, 2023
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2023/03/04/%E5%89%91%E6%8C%87offerDay02/" title="剑指offerDay02" class="posttitle">剑指offerDay02</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        4.1k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        4 mins.
+                    </span>
+                
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%89%91%E6%8C%87offer/" rel="tag">剑指offer</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <h1 id="剑指offerDay02——链表（简单）"><a href="#剑指offerDay02——链表（简单）" class="headerlink" title="剑指offerDay02——链表（简单）"></a>剑指offerDay02——链表（简单）</h1><h2 id="剑指offer-06-从尾到头打印链表"><a href="#剑指offer-06-从尾到头打印链表" class="headerlink" title="剑指offer 06 从尾到头打印链表"></a>剑指offer 06 从尾到头打印链表</h2><p></p>
+<p>💡思路：</p>
+<ul>
+<li>递归法，先递归到达链表尾部，再用push(head.val)将节点值添加进数组</li>
+<li>循环法，JS可以用数组的unshift方法来从头插入数据，也可以用push + reverse 操作</li>
+</ul>
+<pre><code class="javascript">/**
+ * Definition for singly-linked list.
+ * function ListNode(val) &#123;
+ *     this.val = val;
+ *     this.next = null;
+ *...</code></pre>
+            
+            <span class="read-more"><a href="/2023/03/04/%E5%89%91%E6%8C%87offerDay02/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
 <div class="post" id="post">
     <div class="post-cover animated fadeIn" style="
             background-image:
