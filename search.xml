@@ -4,25 +4,6 @@
   
     
     <entry>
-      <title>js_20230619</title>
-      <link href="/2023/06/23/js-20230619/"/>
-      <url>/2023/06/23/js-20230619/</url>
-      
-        <content type="html"><![CDATA[<!-- ---title: '=='与'==='date: 2023-06-19 21:20:36tags: JavaScript Basic-Knowledge Interview--- --><h1 id="JavaScript-中的’-x3D-x3D-’-与’-x3D-x3D-x3D-’"><a href="#JavaScript-中的’-x3D-x3D-’-与’-x3D-x3D-x3D-’" class="headerlink" title="JavaScript 中的’&#x3D;&#x3D;’ 与’&#x3D;&#x3D;&#x3D;’"></a>JavaScript 中的’&#x3D;&#x3D;’ 与’&#x3D;&#x3D;&#x3D;’</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>“&#x3D;&#x3D;“叫做相等运算符，”&#x3D;&#x3D;&#x3D;”叫做严格运算符</p><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ol><li>对于String, number这些基础类型，&#x3D;&#x3D;操作符会先把两边的变量进行类型强制转换成相同的类型再比较是否相等；&#x3D;&#x3D;&#x3D;操作符则不会进行类型转换，而是直接进行比较。</li><li>对于array, object这些高级类型，&#x3D;&#x3D;和 &#x3D;&#x3D;&#x3D;是没有区别的，因为它们比较的是 “指针地址” 。</li><li>对于基础类型和高级类型，&#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D;是有区别的；&#x3D;&#x3D;操作符会先把高级类型转换为基础类型之后，进行<strong>值的比较</strong>；&#x3D;&#x3D;&#x3D;操作符则不会进行转换，<strong>类型比较</strong>，如果不同，直接返回false</li></ol><pre><code class="javascript">examle:    66 == &#39;66&#39; // True    66 === &#39;66&#39; // False</code></pre><h3 id="特别注意"><a href="#特别注意" class="headerlink" title="特别注意"></a>特别注意</h3><ol><li>对于特殊值NaN（Not a Number），表示非数字，NaN和任何数（包括它自己）做相等比较，都会返回false，所以判断NaN最好用isNaN()函数</li><li>null和undefined，两者值比较为True（&#x3D;&#x3D;），类型比较为False（&#x3D;&#x3D;&#x3D;）</li></ol>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> JavaScript Basic-Knowledge Interview </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>剑指offerDay03</title>
       <link href="/2023/03/06/%E5%89%91%E6%8C%87offerDay03/"/>
       <url>/2023/03/06/%E5%89%91%E6%8C%87offerDay03/</url>
