@@ -5,18 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>剑指offerDay03 - Craig&#39;s Blog</title>
+    <title>js_20230623 - Craig&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="CraigGeng Blog,"> 
-    <meta name="description" content="CraigBlog 耿嘉宁的博客,剑指offerDay02——字符串（简单）剑指offer 05 替换空格
-💡思路：
-
-新建一个StringBuilder，逐字符复制，遇到空格则用“%20”替代
-原地修改更省内存
-
-class S,"> 
+    <meta name="description" content="CraigBlog 耿嘉宁的博客,JS 栈与堆、浅拷贝与深拷贝栈内存与堆内存栈内存：JS中的基础数据类型（固定大小）存放于栈内存中（Number，String，Boolean，Null，Undefined），访问时是按值访问。
+堆内,"> 
     <meta name="author" content="Craig Geng"> 
     <link rel="alternative" href="atom.xml" title="Craig&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/website_icon.png"> 
@@ -80,7 +75,7 @@ class S,">
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/website_icon.png" alt="" data-url="http://example.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">剑指offerDay03</h3>
+        <h3 class="subtitle">js_20230623</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -112,22 +107,22 @@ class S,">
                 
                 <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                March 06, 2023
+                June 23, 2023
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2023/03/06/%E5%89%91%E6%8C%87offerDay03/" title="剑指offerDay03" class="">剑指offerDay03</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2023/06/23/js-20230623/" title="js_20230623" class="">js_20230623</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    780
+                    2.3k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    1 mins.
+                    2 mins.
                 </span>
                 
                 
@@ -140,7 +135,7 @@ class S,">
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%89%91%E6%8C%87offer/" rel="tag">剑指offer</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%A0%88%E4%B8%8E%E5%A0%86/" rel="tag">栈与堆</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">浅拷贝</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" rel="tag">深拷贝</a></li></ul>
             
         </div>
     </div>
@@ -161,25 +156,55 @@ class S,">
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h1 id="剑指offerDay02——字符串（简单）"><a href="#剑指offerDay02——字符串（简单）" class="headerlink" title="剑指offerDay02——字符串（简单）"></a>剑指offerDay02——字符串（简单）</h1><h2 id="剑指offer-05-替换空格"><a href="#剑指offer-05-替换空格" class="headerlink" title="剑指offer 05 替换空格"></a>剑指offer 05 替换空格</h2><p><img src="/../images/offer05.png" alt="offer05"></p>
-<p>💡思路：</p>
-<ul>
-<li>新建一个StringBuilder，逐字符复制，遇到空格则用“%20”替代</li>
-<li>原地修改更省内存</li>
-</ul>
-<pre><code class="java">class Solution &#123;
-    public String replaceSpace(String s) &#123;
-        StringBuilder res = new StringBuilder();
-        for(Character c : s.toCharArray())
-        &#123;
-            if(c == &#39; &#39;) res.append(&quot;%20&quot;);
-            else res.append(c);
+            <h1 id="JS-栈与堆、浅拷贝与深拷贝"><a href="#JS-栈与堆、浅拷贝与深拷贝" class="headerlink" title="JS 栈与堆、浅拷贝与深拷贝"></a>JS 栈与堆、浅拷贝与深拷贝</h1><h2 id="栈内存与堆内存"><a href="#栈内存与堆内存" class="headerlink" title="栈内存与堆内存"></a>栈内存与堆内存</h2><p><strong>栈内存</strong>：JS中的基础数据类型（固定大小）存放于栈内存中（Number，String，Boolean，Null，Undefined），访问时是按值访问。</p>
+<p><strong>堆内存</strong>：JS中的引用数据类型（大小不固定）存放于堆内存中（Array，Object），访问时是按引用访问。访问保存在栈内存中的一个地址。地址与堆内存中的存储位置对应。变量存在于栈内存中，对象存在于堆内存中。</p>
+<h2 id="内存的生命周期"><a href="#内存的生命周期" class="headerlink" title="内存的生命周期"></a>内存的生命周期</h2><p>JS环境中分配的内存一般有如下生命周期：</p>
+<ol>
+<li>内存分配：当我们申明变量、函数、对象的时候，系统会自动为他们分配内存</li>
+<li>内存使用：即读写内存，也就是使用变量、函数等</li>
+<li>内存回收：使用完毕，由垃圾回收机制自动回收不再使用的内存</li>
+</ol>
+<h2 id="浅拷贝与深拷贝与赋值"><a href="#浅拷贝与深拷贝与赋值" class="headerlink" title="浅拷贝与深拷贝与赋值"></a>浅拷贝与深拷贝与赋值</h2><ol>
+<li>赋值：赋值的是栈中的地址，不是堆中的数据。两个对象是联动的。</li>
+<li>浅拷贝：重新在堆中创建内存，基本数据类型互不影响，引用类型因共享同一块内存，会相互影响。</li>
+<li>深拷贝：从堆内存中开辟一个新的区域存放新对象，对对象中的子对象进行递归拷贝,拷贝前后的两个对象互不影响。</li>
+</ol>
+<p><img src="/../images/js_20230623_1.png" alt="js_20230623_1"></p>
+<p><img src="/../images/js_20230623_2.png" alt="js_20230623_2"></p>
+<h2 id="浅拷贝与深拷贝的实现方式"><a href="#浅拷贝与深拷贝的实现方式" class="headerlink" title="浅拷贝与深拷贝的实现方式"></a>浅拷贝与深拷贝的实现方式</h2><h3 id="浅拷贝："><a href="#浅拷贝：" class="headerlink" title="浅拷贝："></a>浅拷贝：</h3><ol>
+<li>Object.assign()</li>
+<li>lodash的 _.clone方法</li>
+<li>ES6  …展开运算符</li>
+</ol>
+<h3 id="深拷贝："><a href="#深拷贝：" class="headerlink" title="深拷贝："></a>深拷贝：</h3><ol>
+<li><p>JSON.parse(JSON.stringify())</p>
+</li>
+<li><p>lodash 的 _.deepclone方法</p>
+</li>
+<li><p>手写</p>
+<pre><code class="javascript">function deepClone(obj, hash = new WeakMap()) &#123;
+    if (obj === null) return obj; // 如果是null或者undefined我就不进行拷贝操作
+    if (obj instanceof Date) return new Date(obj);
+    if (obj instanceof RegExp) return new RegExp(obj);
+    // 可能是对象或者普通的值  如果是函数的话是不需要深拷贝
+    if (typeof obj !== &quot;object&quot;) return obj;
+    // 是对象的话就要进行深拷贝
+    if (hash.get(obj)) return hash.get(obj);
+    let cloneObj = new obj.constructor();
+    // 找到的是所属类原型上的constructor,而原型上的 constructor指向的是当前类本身
+    hash.set(obj, cloneObj);
+    for (let key in obj) &#123;
+        if (obj.hasOwnProperty(key)) &#123;
+          // 实现一个递归拷贝
+              cloneObj[key] = deepClone(obj[key], hash);
         &#125;
-        return res.toString();
     &#125;
+    return cloneObj;
 &#125;
 </code></pre>
-
+</li>
+</ol>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
@@ -239,7 +264,7 @@ class S,">
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%91%E6%8C%87offerDay02%E2%80%94%E2%80%94%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">剑指offerDay02——字符串（简单）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%91%E6%8C%87offer-05-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC"><span class="toc-number">1.1.</span> <span class="toc-text">剑指offer 05 替换空格</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JS-%E6%A0%88%E4%B8%8E%E5%A0%86%E3%80%81%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D"><span class="toc-number">1.</span> <span class="toc-text">JS 栈与堆、浅拷贝与深拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88%E5%86%85%E5%AD%98%E4%B8%8E%E5%A0%86%E5%86%85%E5%AD%98"><span class="toc-number">1.1.</span> <span class="toc-text">栈内存与堆内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">1.2.</span> <span class="toc-text">内存的生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D%E4%B8%8E%E8%B5%8B%E5%80%BC"><span class="toc-number">1.3.</span> <span class="toc-text">浅拷贝与深拷贝与赋值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="toc-number">1.4.</span> <span class="toc-text">浅拷贝与深拷贝的实现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%85%E6%8B%B7%E8%B4%9D%EF%BC%9A"><span class="toc-number">1.4.1.</span> <span class="toc-text">浅拷贝：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E6%8B%B7%E8%B4%9D%EF%BC%9A"><span class="toc-number">1.4.2.</span> <span class="toc-text">深拷贝：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.5.</span> <span class="toc-text"></span></a></li></ol></li></ol>
                 </div>
             </div>
             
