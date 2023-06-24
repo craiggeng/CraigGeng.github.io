@@ -5,17 +5,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>剑指offerDay01 - Craig&#39;s Blog</title>
+    <title>前端跨域问题 - Craig&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="CraigGeng Blog,"> 
-    <meta name="description" content="CraigBlog 耿嘉宁的博客,剑指offerDay01——栈与队列（简单）剑指offer 09 用两个栈实现队列
-💡思路：
+    <meta name="description" content="CraigBlog 耿嘉宁的博客,聊聊跨域问题起源跨域问题的产生源于浏览器的同源策略，浏览器要求网页只能够获取与自身来源同源的资源。同源代表着协议，域名与端口均要相同
+问题跨域问题会导致以下三个问题：
 
-两个栈分别作用是入队栈、出队栈
-appendTail方法直接在入队栈内push
-deleteHead,"> 
+Cookie、LocalSt,"> 
     <meta name="author" content="Craig Geng"> 
     <link rel="alternative" href="atom.xml" title="Craig&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/website_icon.png"> 
@@ -79,7 +77,7 @@ deleteHead,">
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/website_icon.png" alt="" data-url="http://example.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">剑指offerDay01</h3>
+        <h3 class="subtitle">前端跨域问题</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -111,16 +109,16 @@ deleteHead,">
                 
                 <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                March 03, 2023
+                June 24, 2023
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2023/03/03/%E5%89%91%E6%8C%87offerDay01/" title="剑指offerDay01" class="">剑指offerDay01</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2023/06/24/web-20230624/" title="前端跨域问题" class="">前端跨域问题</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    2.5k
+                    1.7k
                 </span>
                 
                 
@@ -139,7 +137,7 @@ deleteHead,">
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%89%91%E6%8C%87offer/" rel="tag">剑指offer</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a></li></ul>
             
         </div>
     </div>
@@ -160,84 +158,45 @@ deleteHead,">
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h1 id="剑指offerDay01——栈与队列（简单）"><a href="#剑指offerDay01——栈与队列（简单）" class="headerlink" title="剑指offerDay01——栈与队列（简单）"></a>剑指offerDay01——栈与队列（简单）</h1><h2 id="剑指offer-09-用两个栈实现队列"><a href="#剑指offer-09-用两个栈实现队列" class="headerlink" title="剑指offer 09 用两个栈实现队列"></a>剑指offer 09 用两个栈实现队列</h2><p><img src="/../images/offer09.png" alt="offer09"></p>
-<p>💡<strong>思路</strong>：</p>
-<ul>
-<li>两个栈分别作用是<strong>入队栈</strong>、<strong>出队栈</strong></li>
-<li><strong>appendTail</strong>方法直接在入队栈内push</li>
-<li><strong>deleteHead</strong>方法需要检查两个栈的长度，先判断出队栈，再判断入队栈。<ol>
-<li>均为空 -&gt; 队列为空</li>
-<li>出队空，入队不空 -&gt; 先用out.push(in.pop)操作将入队栈的元素放入出队栈（两个栈的特性自然维护队列的特性），再pop出队栈.</li>
+            <h1 id="聊聊跨域问题"><a href="#聊聊跨域问题" class="headerlink" title="聊聊跨域问题"></a>聊聊跨域问题</h1><h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p>跨域问题的产生源于浏览器的同源策略，浏览器要求网页只能够获取与自身来源同源的资源。同源代表着协议，域名与端口均要相同</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>跨域问题会导致以下三个问题：</p>
+<ol>
+<li>Cookie、LocalStorage 和 IndexDB 无法读取 </li>
+<li>DOM 和 Js对象无法获得</li>
+<li>AJAX 请求不能发送</li>
 </ol>
+<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><ol>
+<li><p>JSONP(JSON with Padding) 传参一个回调函数名给后端，方便后端返回时执行这个在前端定义的回调函数，并在script标签内设置一个回调执行函数</p>
+<p>但是缺点明显：只能实现get一种请求。</p>
+<p>服务端要设置Content-Type为application&#x2F;json，并获取callback参数值</p>
 </li>
-</ul>
-<pre><code class="javascript">var CQueue = function() &#123;
-    this.inStack = [];
-    this.outStack = [];
-&#125;;
-
-/** 
- * @param &#123;number&#125; value
- * @return &#123;void&#125;
- */
-CQueue.prototype.appendTail = function(value) &#123;
-    this.inStack.push(value);
-&#125;;
-
-/**
- * @return &#123;number&#125;
- */
-CQueue.prototype.deleteHead = function() &#123;
-    if (!this.outStack.length) &#123;
-        if (!this.inStack.length) &#123;
-            return -1;
-        &#125;
-        this.in2out();
-    &#125;
-    return this.outStack.pop();
-&#125;;
-
-
-CQueue.prototype.in2out = function() &#123;
-    while (this.inStack.length) &#123;
-        this.outStack.push(this.inStack.pop());
-    &#125;
-&#125;;
-/**
- * Your CQueue object will be instantiated and called as such:
- * var obj = new CQueue()
- * obj.appendTail(value)
- * var param_2 = obj.deleteHead()
- */
-</code></pre>
-<h2 id="剑指offer-30-包含min函数的栈"><a href="#剑指offer-30-包含min函数的栈" class="headerlink" title="剑指offer 30 包含min函数的栈"></a>剑指offer 30 包含min函数的栈</h2><p><img src="/../images/offer30.png" alt="offer30"></p>
-<p>💡<strong>思路</strong>：</p>
+<li><p>跨域资源共享（CORS）</p>
 <ul>
-<li>设置辅助栈，原栈push时，min栈同时保存当前整个栈的min值，即push当前元素和min栈栈顶元素更小的那一个。</li>
-<li>注意开始辅助栈，放入无穷大（Infinity）</li>
+<li>普通跨域请求：只服务端设置Access-Control-Allow-Origin即可，前端无须设置，若要带cookie请求：前后端都需要设置。Access-Control-Allow-Credentials，允许前端带认证cookie：启用此项后，上面的域名不能为’*’，必须指定具体的域名，否则浏览器会提示</li>
 </ul>
-<pre><code class="JavaScript">var MinStack = function() &#123;
-    this.x_stack = [];
-    this.min_stack = [Infinity];
-&#125;;
+</li>
+<li><p>nginx代理跨域</p>
+</li>
+</ol>
+<p><strong>nginx反向代理接口跨域</strong></p>
+<p>跨域原理： 同源策略是浏览器的安全策略，不是HTTP协议的一部分。服务器端调用HTTP接口只是使用HTTP协议，不会执行JS脚本，不需要同源策略，也就不存在跨越问题。</p>
+<p>实现思路：通过nginx配置一个代理服务器（域名与domain1相同，端口不同）做跳板机，反向代理访问domain2接口，并且可以顺便修改cookie中domain信息，方便当前域cookie写入，实现跨域登录。</p>
+<p>nginx具体配置：</p>
+<pre><code class="nginx">#proxy服务器
+server &#123;
+    listen       81;
+    server_name  www.domain1.com;
 
-MinStack.prototype.push = function(x) &#123;
-    this.x_stack.push(x);
-    this.min_stack.push(Math.min(this.min_stack[this.min_stack.length - 1], x));
-&#125;;
+    location / &#123;
+        proxy_pass   http://www.domain2.com:8080;  #反向代理
+        proxy_cookie_domain www.domain2.com www.domain1.com; #修改cookie里域名
+        index  index.html index.htm;
 
-MinStack.prototype.pop = function() &#123;
-    this.x_stack.pop();
-    this.min_stack.pop();
-&#125;;
-
-MinStack.prototype.top = function() &#123;
-    return this.x_stack[this.x_stack.length - 1];
-&#125;;
-
-MinStack.prototype.min = function() &#123;
-    return this.min_stack[this.min_stack.length - 1];
-&#125;;
+        # 当用webpack-dev-server等中间件代理接口访问nginx时，此时无浏览器参与，故没有同源限制，下面的跨域配置可不启用
+        add_header Access-Control-Allow-Origin http://www.domain1.com;  #当前端只跨域不带cookie时，可为*
+        add_header Access-Control-Allow-Credentials true;
+    &#125;
+&#125;
 </code></pre>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
@@ -299,7 +258,7 @@ MinStack.prototype.min = function() &#123;
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%91%E6%8C%87offerDay01%E2%80%94%E2%80%94%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">剑指offerDay01——栈与队列（简单）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%91%E6%8C%87offer-09-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97"><span class="toc-number">1.1.</span> <span class="toc-text">剑指offer 09 用两个栈实现队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%91%E6%8C%87offer-30-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88"><span class="toc-number">1.2.</span> <span class="toc-text">剑指offer 30 包含min函数的栈</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%81%8A%E8%81%8A%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">聊聊跨域问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E6%BA%90"><span class="toc-number">1.1.</span> <span class="toc-text">起源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">解决方式</span></a></li></ol></li></ol>
                 </div>
             </div>
             

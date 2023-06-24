@@ -5,17 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>剑指offerDay01 - Craig&#39;s Blog</title>
+    <title>Position详解 - Craig&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="CraigGeng Blog,"> 
-    <meta name="description" content="CraigBlog 耿嘉宁的博客,剑指offerDay01——栈与队列（简单）剑指offer 09 用两个栈实现队列
-💡思路：
-
-两个栈分别作用是入队栈、出队栈
-appendTail方法直接在入队栈内push
-deleteHead,"> 
+    <meta name="description" content="CraigBlog 耿嘉宁的博客,细说PositionPosition总共有五个取值，分别为static默认定位，absolute绝对定位，relative相对定位，fixed固定定位和sticky粘性定位。
+Static默认定位该,"> 
     <meta name="author" content="Craig Geng"> 
     <link rel="alternative" href="atom.xml" title="Craig&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/website_icon.png"> 
@@ -79,7 +75,7 @@ deleteHead,">
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/website_icon.png" alt="" data-url="http://example.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">剑指offerDay01</h3>
+        <h3 class="subtitle">Position详解</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -111,22 +107,22 @@ deleteHead,">
                 
                 <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                March 03, 2023
+                June 24, 2023
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2023/03/03/%E5%89%91%E6%8C%87offerDay01/" title="剑指offerDay01" class="">剑指offerDay01</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2023/06/24/css-20230624/" title="Position详解" class="">Position详解</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    2.5k
+                    1.3k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    2 mins.
+                    1 mins.
                 </span>
                 
                 
@@ -139,7 +135,7 @@ deleteHead,">
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%89%91%E6%8C%87offer/" rel="tag">剑指offer</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Position%E5%B1%9E%E6%80%A7/" rel="tag">Position属性</a></li></ul>
             
         </div>
     </div>
@@ -160,85 +156,19 @@ deleteHead,">
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h1 id="剑指offerDay01——栈与队列（简单）"><a href="#剑指offerDay01——栈与队列（简单）" class="headerlink" title="剑指offerDay01——栈与队列（简单）"></a>剑指offerDay01——栈与队列（简单）</h1><h2 id="剑指offer-09-用两个栈实现队列"><a href="#剑指offer-09-用两个栈实现队列" class="headerlink" title="剑指offer 09 用两个栈实现队列"></a>剑指offer 09 用两个栈实现队列</h2><p><img src="/../images/offer09.png" alt="offer09"></p>
-<p>💡<strong>思路</strong>：</p>
-<ul>
-<li>两个栈分别作用是<strong>入队栈</strong>、<strong>出队栈</strong></li>
-<li><strong>appendTail</strong>方法直接在入队栈内push</li>
-<li><strong>deleteHead</strong>方法需要检查两个栈的长度，先判断出队栈，再判断入队栈。<ol>
-<li>均为空 -&gt; 队列为空</li>
-<li>出队空，入队不空 -&gt; 先用out.push(in.pop)操作将入队栈的元素放入出队栈（两个栈的特性自然维护队列的特性），再pop出队栈.</li>
-</ol>
-</li>
-</ul>
-<pre><code class="javascript">var CQueue = function() &#123;
-    this.inStack = [];
-    this.outStack = [];
-&#125;;
-
-/** 
- * @param &#123;number&#125; value
- * @return &#123;void&#125;
- */
-CQueue.prototype.appendTail = function(value) &#123;
-    this.inStack.push(value);
-&#125;;
-
-/**
- * @return &#123;number&#125;
- */
-CQueue.prototype.deleteHead = function() &#123;
-    if (!this.outStack.length) &#123;
-        if (!this.inStack.length) &#123;
-            return -1;
-        &#125;
-        this.in2out();
-    &#125;
-    return this.outStack.pop();
-&#125;;
-
-
-CQueue.prototype.in2out = function() &#123;
-    while (this.inStack.length) &#123;
-        this.outStack.push(this.inStack.pop());
-    &#125;
-&#125;;
-/**
- * Your CQueue object will be instantiated and called as such:
- * var obj = new CQueue()
- * obj.appendTail(value)
- * var param_2 = obj.deleteHead()
- */
-</code></pre>
-<h2 id="剑指offer-30-包含min函数的栈"><a href="#剑指offer-30-包含min函数的栈" class="headerlink" title="剑指offer 30 包含min函数的栈"></a>剑指offer 30 包含min函数的栈</h2><p><img src="/../images/offer30.png" alt="offer30"></p>
-<p>💡<strong>思路</strong>：</p>
-<ul>
-<li>设置辅助栈，原栈push时，min栈同时保存当前整个栈的min值，即push当前元素和min栈栈顶元素更小的那一个。</li>
-<li>注意开始辅助栈，放入无穷大（Infinity）</li>
-</ul>
-<pre><code class="JavaScript">var MinStack = function() &#123;
-    this.x_stack = [];
-    this.min_stack = [Infinity];
-&#125;;
-
-MinStack.prototype.push = function(x) &#123;
-    this.x_stack.push(x);
-    this.min_stack.push(Math.min(this.min_stack[this.min_stack.length - 1], x));
-&#125;;
-
-MinStack.prototype.pop = function() &#123;
-    this.x_stack.pop();
-    this.min_stack.pop();
-&#125;;
-
-MinStack.prototype.top = function() &#123;
-    return this.x_stack[this.x_stack.length - 1];
-&#125;;
-
-MinStack.prototype.min = function() &#123;
-    return this.min_stack[this.min_stack.length - 1];
-&#125;;
-</code></pre>
+            <h1 id="细说Position"><a href="#细说Position" class="headerlink" title="细说Position"></a>细说Position</h1><p>Position总共有五个取值，分别为static默认定位，absolute绝对定位，relative相对定位，fixed固定定位和sticky粘性定位。</p>
+<h2 id="Static默认定位"><a href="#Static默认定位" class="headerlink" title="Static默认定位"></a>Static默认定位</h2><p>该元素使用正常布局，此时 top、right、bottom、left 属性无效。</p>
+<h2 id="Absolute绝对定位"><a href="#Absolute绝对定位" class="headerlink" title="Absolute绝对定位"></a>Absolute绝对定位</h2><p>绝对定位的元素的位置相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于html</p>
+<p>absolute 定位使元素的位置与文档流无关，因此不占据空间。<em><strong>绝对定位后会脱离文档流</strong></em></p>
+<p>absolute 定位的元素和其他元素重叠。</p>
+<h2 id="Relative相对定位"><a href="#Relative相对定位" class="headerlink" title="Relative相对定位"></a>Relative相对定位</h2><p>relative 相对定位元素的定位是相对其正常位置。就是相对于原来的位置进行定位</p>
+<p>设置relative属性但不设置top left right</p>
+<h2 id="Fixed固定定位"><a href="#Fixed固定定位" class="headerlink" title="Fixed固定定位"></a>Fixed固定定位</h2><p>元素的位置相对于浏览器窗口是固定位置。</p>
+<p>即使窗口是滚动的它也不会移动。</p>
+<p>Fixed定位使元素的位置与文档流无关，因此不占据空间。</p>
+<p>Fixed定位的元素和其他元素重叠。</p>
+<h2 id="Sticky粘性定位"><a href="#Sticky粘性定位" class="headerlink" title="Sticky粘性定位"></a>Sticky粘性定位</h2><p>包含了 relative 与 fixed 这两种定位模式，但不是同时存在，需要一个触发条件，即边偏移 top &#x2F; right &#x2F; bottom &#x2F; left 的值达到后就会切换 fixed 方式，不同定位方式，就分别显示该方式的定位特征。</p>
+<p>举例子就是广告。</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -299,7 +229,7 @@ MinStack.prototype.min = function() &#123;
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%91%E6%8C%87offerDay01%E2%80%94%E2%80%94%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">剑指offerDay01——栈与队列（简单）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%91%E6%8C%87offer-09-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97"><span class="toc-number">1.1.</span> <span class="toc-text">剑指offer 09 用两个栈实现队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%91%E6%8C%87offer-30-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88"><span class="toc-number">1.2.</span> <span class="toc-text">剑指offer 30 包含min函数的栈</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%86%E8%AF%B4Position"><span class="toc-number">1.</span> <span class="toc-text">细说Position</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Static%E9%BB%98%E8%AE%A4%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.1.</span> <span class="toc-text">Static默认定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Absolute%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.2.</span> <span class="toc-text">Absolute绝对定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Relative%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.3.</span> <span class="toc-text">Relative相对定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fixed%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.4.</span> <span class="toc-text">Fixed固定定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sticky%E7%B2%98%E6%80%A7%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.5.</span> <span class="toc-text">Sticky粘性定位</span></a></li></ol></li></ol>
                 </div>
             </div>
             

@@ -5,17 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>剑指offerDay01 - Craig&#39;s Blog</title>
+    <title>Craig&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="CraigGeng Blog,"> 
-    <meta name="description" content="CraigBlog 耿嘉宁的博客,剑指offerDay01——栈与队列（简单）剑指offer 09 用两个栈实现队列
-💡思路：
-
-两个栈分别作用是入队栈、出队栈
-appendTail方法直接在入队栈内push
-deleteHead,"> 
+    <meta name="description" content="CraigBlog 耿嘉宁的博客,"> 
     <meta name="author" content="Craig Geng"> 
     <link rel="alternative" href="atom.xml" title="Craig&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/website_icon.png"> 
@@ -72,77 +67,103 @@ deleteHead,">
     </div>
     <span id="config-title" style="display:none">Craig&#39;s Blog</span>
     <div id="loader"></div>
-    <div id="single">
-    <div class="scrollbar gradient-bg-rev"></div>
-<div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <div class="navigation animated fadeIn fast delay-1s">
-        <img id="home-icon" class="icon-home" src="/img/website_icon.png" alt="" data-url="http://example.com">
-        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">剑指offerDay01</h3>
-        <div class="social">
-            <!--        <div class="like-icon">-->
-            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-            <!--        </div>-->
-            <div>
-                <div class="share">
-                    
-                        <a href="javascript:;" class="iconfont icon-share1"></a>
-                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
-                    
-                </div>
-            </div>
+    <div class="nav">
+    <ul id="menu-menu" class="menu">
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/page/" title="PAGE" external="false">PAGE</a>
+        </li>
+        
+    </ul>
+    <p class="copyright" id="copyright">
+        &copy; 2023 Craig Geng.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+    </p>
+</div>
+
+<div id="container">
+    
+<div class="search-box">
+    <form class="site-search-form">
+        <span class="iconfont icon-search"></span>
+        <input type="text" id="local-search-input" class="st-search-input" />
+        <div class="iconfont icon-cross search-box-close"></div>
+    </form>
+    <div class="search-scrollable">
+        <div id="local-search-result" class="local-search-result-cls" data-initialise="Initialising search index..."
+            data-start="Please input search keywords." data-empty="No result found, please try other keywords.">
+            <span>Please input search keywords.</span>
         </div>
     </div>
 </div>
-
-    <div class="section">
-        <div class=article-header-wrapper>
-    <div class="article-header">
-        <div class="article-cover animated fadeIn" style="
-            animation-delay: 600ms;
-            animation-duration: 1.2s;
-            background-image: 
-                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url('/img/cover.jpg') ">
+<div id="header">
+    <div>
+        <div class="logo animated fadeInDown">
+            <img src="/img/website_icon.png" alt="">
+            <a class="image-logo" href="/"></a>
         </div>
-        <div class="else">
-            <p class="animated fadeInDown">
-                
-                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
-                
-                March 03, 2023
-            </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2023/03/03/%E5%89%91%E6%8C%87offerDay01/" title="剑指offerDay01" class="">剑指offerDay01</a>
-            </h3>
+        <ul id="menu-menu" class="menu text-menu">
             
-            <p class="post-count animated fadeInDown">
-                
-                <span>
-                    <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    2.5k
-                </span>
-                
-                
-                <span>
-                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    2 mins.
-                </span>
-                
-                
-                
-                <span id="busuanzi_container_page_pv">
-                    <b class="iconfont icon-read"></b> <i>Read count</i>
-                    <span id="busuanzi_value_page_pv">0</span>
-                </span>
-                
-            </p>
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/page/" title="PAGE" external="false" class="menu-link">PAGE</a>
+            </li>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%89%91%E6%8C%87offer/" rel="tag">剑指offer</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+            <li class="animated fadeInDown search-bar iconfont icon-search"></li>
             
+        </ul>
+        <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
+    </div>
+</div>
+<div id="screen">
+    <div id="mark">
+        <div class="cover animated fadeIn" style="
+            animation-delay: 900ms;
+            animation-duration: 2.8s;
+            background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.56), #100e17),
+                url(/img/cover.jpg);">
         </div>
     </div>
+    
+    <div id="post0" class="else">
+        <p class="animated fadeInDown">
+            
+            <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            August 31, 2022
+        </p>
+        <h3 class="post-title animated fadeInDown">
+            <a href="/2022/08/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" title="我的第一篇文章" class="posttitle">我的第一篇文章</a></h3>
+        
+        <p class="post-count animated fadeInDown">
+            
+            <span>
+                <b class="iconfont icon-text2"></b> <i>Words count</i>
+                81
+            </span>
+            
+            
+            <span>
+                <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                1 mins.
+            </span>
+            
+            
+        </p>
+        
+        
+        <div class="md-content animated fadeIn">
+            
+            <p>你好Hexo<br>你好世界<br><a target="_blank" rel="noopener" href="https://craiggeng.github.io/">我的Github个人网站</a></p>
+
+            
+            <span class="read-more"><a href="/2022/08/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" title="Read article" class="posttitle">Read article</a>
+                <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+    
 </div>
 
 <div class="screen-gradient-after">
@@ -150,166 +171,106 @@ deleteHead,">
         <div class="screen-gradient-content-inside">
             <div class="bold-underline-links screen-gradient-sponsor">
                 <p>
-                    <span class="animated fadeIn delay-1s"></span>
+                    <span class="typed-text"></span>
                 </p>
             </div>
         </div>
     </div>
 </div>
 
-<div class="article">
-    <div class='main'>
-        <div class="content markdown animated fadeIn">
-            <h1 id="剑指offerDay01——栈与队列（简单）"><a href="#剑指offerDay01——栈与队列（简单）" class="headerlink" title="剑指offerDay01——栈与队列（简单）"></a>剑指offerDay01——栈与队列（简单）</h1><h2 id="剑指offer-09-用两个栈实现队列"><a href="#剑指offer-09-用两个栈实现队列" class="headerlink" title="剑指offer 09 用两个栈实现队列"></a>剑指offer 09 用两个栈实现队列</h2><p><img src="/../images/offer09.png" alt="offer09"></p>
-<p>💡<strong>思路</strong>：</p>
-<ul>
-<li>两个栈分别作用是<strong>入队栈</strong>、<strong>出队栈</strong></li>
-<li><strong>appendTail</strong>方法直接在入队栈内push</li>
-<li><strong>deleteHead</strong>方法需要检查两个栈的长度，先判断出队栈，再判断入队栈。<ol>
-<li>均为空 -&gt; 队列为空</li>
-<li>出队空，入队不空 -&gt; 先用out.push(in.pop)操作将入队栈的元素放入出队栈（两个栈的特性自然维护队列的特性），再pop出队栈.</li>
-</ol>
-</li>
-</ul>
-<pre><code class="javascript">var CQueue = function() &#123;
-    this.inStack = [];
-    this.outStack = [];
-&#125;;
-
-/** 
- * @param &#123;number&#125; value
- * @return &#123;void&#125;
- */
-CQueue.prototype.appendTail = function(value) &#123;
-    this.inStack.push(value);
-&#125;;
-
-/**
- * @return &#123;number&#125;
- */
-CQueue.prototype.deleteHead = function() &#123;
-    if (!this.outStack.length) &#123;
-        if (!this.inStack.length) &#123;
-            return -1;
-        &#125;
-        this.in2out();
-    &#125;
-    return this.outStack.pop();
-&#125;;
-
-
-CQueue.prototype.in2out = function() &#123;
-    while (this.inStack.length) &#123;
-        this.outStack.push(this.inStack.pop());
-    &#125;
-&#125;;
-/**
- * Your CQueue object will be instantiated and called as such:
- * var obj = new CQueue()
- * obj.appendTail(value)
- * var param_2 = obj.deleteHead()
- */
-</code></pre>
-<h2 id="剑指offer-30-包含min函数的栈"><a href="#剑指offer-30-包含min函数的栈" class="headerlink" title="剑指offer 30 包含min函数的栈"></a>剑指offer 30 包含min函数的栈</h2><p><img src="/../images/offer30.png" alt="offer30"></p>
-<p>💡<strong>思路</strong>：</p>
-<ul>
-<li>设置辅助栈，原栈push时，min栈同时保存当前整个栈的min值，即push当前元素和min栈栈顶元素更小的那一个。</li>
-<li>注意开始辅助栈，放入无穷大（Infinity）</li>
-</ul>
-<pre><code class="JavaScript">var MinStack = function() &#123;
-    this.x_stack = [];
-    this.min_stack = [Infinity];
-&#125;;
-
-MinStack.prototype.push = function(x) &#123;
-    this.x_stack.push(x);
-    this.min_stack.push(Math.min(this.min_stack[this.min_stack.length - 1], x));
-&#125;;
-
-MinStack.prototype.pop = function() &#123;
-    this.x_stack.pop();
-    this.min_stack.pop();
-&#125;;
-
-MinStack.prototype.top = function() &#123;
-    return this.x_stack[this.x_stack.length - 1];
-&#125;;
-
-MinStack.prototype.min = function() &#123;
-    return this.min_stack[this.min_stack.length - 1];
-&#125;;
-</code></pre>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls"
-                data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
+    <div id="primary">
+        
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
             
-            <ul id="audio-list" style="display:none">
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            August 31, 2022
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2022/08/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" title="我的第一篇文章" class="posttitle">我的第一篇文章</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        81
+                    </span>
                 
                 
-                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        1 mins.
+                    </span>
                 
-                    
-            </ul>
+                
+            </p>
             
-                        
+        
+        <div class="md-content animated fadeIn">
             
-            
-    <div id='gitalk-container' class="comment link"
-        data-ae='false'
-        data-ci=''
-        data-cs=''
-        data-r=''
-        data-o=''
-        data-a=''
-        data-d=''
-        data-p='https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
-    >Comments</div>
-
+                <p>你好Hexo<br>你好世界<br><a target="_blank" rel="noopener" href="https://craiggeng.github.io/">我的Github个人网站</a></p>
 
             
-            
-        </div>
-        <div class="sidebar">
-            <div class="box animated fadeInRight">
-                <div class="subbox">
-                    <img src="/img/paper-avatar.jpg" height=300 width=300></img>
-                    <p>Craig Geng</p>
-                    <span>Think like an artist, develop like an artisan</span>
-                    <dl>
-                        
-                            
-                            
-                            
-                        
-                        
-                    </dl>
-                </div>
-                <ul>
-                    <li><a href="/">12 <p>Articles</p></a></li>
-                    <li><a href="/categories">0 <p>Categories</p></a></li>
-                    <li><a href="/tags">18 <p>Tags</p></a></li>
-                </ul>
-            </div>
-            
-            
-            
-            <div class="box sticky animated fadeInRight faster">
-                <div id="toc" class="subbox">
-                    <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%91%E6%8C%87offerDay01%E2%80%94%E2%80%94%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%EF%BC%88%E7%AE%80%E5%8D%95%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">剑指offerDay01——栈与队列（简单）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%91%E6%8C%87offer-09-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97"><span class="toc-number">1.1.</span> <span class="toc-text">剑指offer 09 用两个栈实现队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%91%E6%8C%87offer-30-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88"><span class="toc-number">1.2.</span> <span class="toc-text">剑指offer 30 包含min函数的栈</span></a></li></ol></li></ol>
-                </div>
-            </div>
-            
-            
+            <span class="read-more"><a href="/2022/08/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
 </div>
 
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            August 31, 2022
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2022/08/31/hello-world/" title="Hello World" class="posttitle">Hello World</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        1.5k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        1 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post...</code></pre>
+            
+            <span class="read-more"><a href="/2022/08/31/hello-world/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
     </div>
 </div>
+
+
+    </div>
+    
+</div>
+<div id="preview"></div>
+
     <div id="back-to-top" class="animated fadeIn faster">
         <div class="flow"></div>
         <span class="percentage animated fadeIn faster">0%</span>

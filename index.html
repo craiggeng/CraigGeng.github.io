@@ -132,36 +132,39 @@
             
             <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
             
-            June 23, 2023
+            June 24, 2023
         </p>
         <h3 class="post-title animated fadeInDown">
-            <a href="/2023/06/23/js-20230623/" title="js_20230623" class="posttitle">js_20230623</a></h3>
+            <a href="/2023/06/24/css-20230624-1/" title="CSS实现元素水平垂直居中" class="posttitle">CSS实现元素水平垂直居中</a></h3>
         
         <p class="post-count animated fadeInDown">
             
             <span>
                 <b class="iconfont icon-text2"></b> <i>Words count</i>
-                2.3k
+                498
             </span>
             
             
             <span>
                 <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                2 mins.
+                1 mins.
             </span>
             
             
         </p>
         
         
-        <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%A0%88%E4%B8%8E%E5%A0%86/" rel="tag">栈与堆</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">浅拷贝</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" rel="tag">深拷贝</a></li></ul>
+        <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%B1%85%E4%B8%AD/" rel="tag">居中</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a></li></ul>
         
         <div class="md-content animated fadeIn">
             
-            <h1 id="JS-栈与堆、浅拷贝与深拷贝"><a href="#JS-栈与堆、浅拷贝与深拷贝" class="headerlink" title="JS 栈与堆、浅拷贝与深拷贝"></a>JS 栈与堆、浅拷贝与深拷贝</h1><h2 id="栈内存与堆内存"><a href="#栈内存与堆内存" class="headerlink" title="栈内存与堆内存"></a>栈内存与堆内存</h2><p><strong>栈内存</strong>：JS中的基础数据类型（固定大小）存放于栈内存中（Number，String，Boolean，Null，Undefined），访问时是按值访问。</p>
-<p><strong>堆内存...</strong></p>
+            <h1 id="CSS实现元素水平垂直居中"><a href="#CSS实现元素水平垂直居中" class="headerlink" title="CSS实现元素水平垂直居中"></a>CSS实现元素水平垂直居中</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
+<li>已知元素宽高<ol>
+<li>absolute + 负margin</li>
+<li>absolute + margin auto</li>
+<li>absolute + calc（50% - 1&#x2F;2 width...</li></ol></li></ul>
             
-            <span class="read-more"><a href="/2023/06/23/js-20230623/" title="Read article" class="posttitle">Read article</a>
+            <span class="read-more"><a href="/2023/06/24/css-20230624-1/" title="Read article" class="posttitle">Read article</a>
                 <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
@@ -182,6 +185,202 @@
 
     <div id="primary">
         
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            June 24, 2023
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2023/06/24/css-20230624/" title="Position详解" class="posttitle">Position详解</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        1.3k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        1 mins.
+                    </span>
+                
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/CSS/" rel="tag">CSS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Position%E5%B1%9E%E6%80%A7/" rel="tag">Position属性</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <h1 id="细说Position"><a href="#细说Position" class="headerlink" title="细说Position"></a>细说Position</h1><p>Position总共有五个取值，分别为static默认定位，absolute绝对定位，relative相对定位，fixed固定定位和sticky粘性定位。</p>
+<h2 id="Static默认定位"><a href="#Static默认定位" class="headerlink" title="Static默认定位"></a>Static默认定位</h2><p>该元素使用正常布局，此时 top、right、bottom、left 属性无效。</p>
+<h2 id="Absolute绝对定位"><a href="#Absolute绝对定位" class="headerlink" title="Absolute绝对定位"></a>Absolute绝对定位</h2><p>绝对定位的元素的位置相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于html</p>
+<p>absolute 定位使元素的位置与文档流无关，因此不占据空间。<em><strong>绝对定位后会脱离文档流</strong></em></p>
+<p>absolute...</p>
+            
+            <span class="read-more"><a href="/2023/06/24/css-20230624/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            June 24, 2023
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2023/06/24/js-20230624/" title="事件循环" class="posttitle">事件循环</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        852
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        1 mins.
+                    </span>
+                
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" rel="tag">事件循环</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <h1 id="浏览器中的事件循环（EventLoop）"><a href="#浏览器中的事件循环（EventLoop）" class="headerlink" title="浏览器中的事件循环（EventLoop）"></a>浏览器中的事件循环（EventLoop）</h1><h2 id="微任务与宏任务"><a href="#微任务与宏任务" class="headerlink" title="微任务与宏任务"></a>微任务与宏任务</h2><p>JS是单线程的，为了防止一个函数执行时间过长阻塞后面的代码，所以会先将同步代码压入执行栈中，依次执行，将异步代码推入异步队列，异步队列又分为宏任务队列和微任务队列，因为宏任务队列的执行时间较长，所以<strong>微任务队列要优先于宏任务队列</strong>。</p>
+<p>微任务，是语言提供的，Promise.then，MutationObserver</p>
+<p>宏任务，是宿主环境提供的，比如浏览器，script主代码块，setImmediate setTimeout，setInterval</p>
+<p>事...</p>
+            
+            <span class="read-more"><a href="/2023/06/24/js-20230624/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            June 24, 2023
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2023/06/24/web-20230624/" title="前端跨域问题" class="posttitle">前端跨域问题</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        1.7k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        2 mins.
+                    </span>
+                
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <h1 id="聊聊跨域问题"><a href="#聊聊跨域问题" class="headerlink" title="聊聊跨域问题"></a>聊聊跨域问题</h1><h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p>跨域问题的产生源于浏览器的同源策略，浏览器要求网页只能够获取与自身来源同源的资源。同源代表着协议，域名与端口均要相同</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>跨域问题会导致以下三个问题：</p>
+<ol>
+<li>Cookie、LocalStorage 和 IndexDB 无法读取 </li>
+<li>DOM 和 Js对象无法获得</li>
+<li>AJAX 请求不能发送</li>
+</ol>
+<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><ol>
+<li><p>JSONP(JSON with Padding) 传参一个回调函数名给后端，方便后端返回时执行这个在前端定义的回调函数，并在script标签内设置一个回调执行函数</p>
+<p>但是缺点明显：只能实现get...</p></li></ol>
+            
+            <span class="read-more"><a href="/2023/06/24/web-20230624/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            June 23, 2023
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2023/06/23/js-20230623/" title="js_20230623" class="posttitle">js_20230623</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        2.3k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        2 mins.
+                    </span>
+                
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%A0%88%E4%B8%8E%E5%A0%86/" rel="tag">栈与堆</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%B5%85%E6%8B%B7%E8%B4%9D/" rel="tag">浅拷贝</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%B7%B1%E6%8B%B7%E8%B4%9D/" rel="tag">深拷贝</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <h1 id="JS-栈与堆、浅拷贝与深拷贝"><a href="#JS-栈与堆、浅拷贝与深拷贝" class="headerlink" title="JS 栈与堆、浅拷贝与深拷贝"></a>JS 栈与堆、浅拷贝与深拷贝</h1><h2 id="栈内存与堆内存"><a href="#栈内存与堆内存" class="headerlink" title="栈内存与堆内存"></a>栈内存与堆内存</h2><p><strong>栈内存</strong>：JS中的基础数据类型（固定大小）存放于栈内存中（Number，String，Boolean，Null，Undefined），访问时是按值访问。</p>
+<p><strong>堆内存</strong>：JS中的引用数据类型（大小不固定）存放于堆内存中（Array，Object），访问时是按引用访问。访问保存在栈内存中的一个地址。地址与堆内存中的存储位置对应。变量存在于栈内存中，对象存在于堆内存中。</p>
+<h2 id="内存的生命周期"><a href="#内存的生命周期" class="headerlink" title="内存的生命周期"></a>内存的生命周期</h2><p>JS环境中分配的内存一般有如下生命周期：</p>
+<ol>
+<li>内存分配：当我们申明变量、函数、对象的时...</li></ol>
+            
+            <span class="read-more"><a href="/2023/06/23/js-20230623/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
 <div class="post" id="post">
     <div class="post-cover animated fadeIn" style="
             background-image:
@@ -446,93 +645,9 @@
 </div>
 
 
-<div class="post" id="post">
-    <div class="post-cover animated fadeIn" style="
-            background-image:
-            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-            url(/img/welcome-cover.jpg);">
     </div>
-    <div class="else">
-        <p class="animated fadeInDown">
-            
-                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
-            
-            August 31, 2022
-        </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2022/08/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" title="我的第一篇文章" class="posttitle">我的第一篇文章</a></h3>
-        
-            <p class="post-count animated fadeInDown">
-                
-                    <span>
-                        <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        81
-                    </span>
-                
-                
-                    <span>
-                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        1 mins.
-                    </span>
-                
-                
-            </p>
-            
-        
-        <div class="md-content animated fadeIn">
-            
-                <p>你好Hexo<br>你好世界<br><a target="_blank" rel="noopener" href="https://craiggeng.github.io/">我的Github个人网站</a></p>
-
-            
-            <span class="read-more"><a href="/2022/08/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
-        </div>
-    </div>
-</div>
-
-
-<div class="post" id="post">
-    <div class="post-cover animated fadeIn" style="
-            background-image:
-            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-            url(/img/welcome-cover.jpg);">
-    </div>
-    <div class="else">
-        <p class="animated fadeInDown">
-            
-                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
-            
-            August 31, 2022
-        </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2022/08/31/hello-world/" title="Hello World" class="posttitle">Hello World</a></h3>
-        
-            <p class="post-count animated fadeInDown">
-                
-                    <span>
-                        <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        1.5k
-                    </span>
-                
-                
-                    <span>
-                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        1 mins.
-                    </span>
-                
-                
-            </p>
-            
-        
-        <div class="md-content animated fadeIn">
-            
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post...</code></pre>
-            
-            <span class="read-more"><a href="/2022/08/31/hello-world/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
-        </div>
-    </div>
-</div>
-
-
-    </div>
+    
+    <div id="pager"><a href="/page/2/" class="more" data-loading="加载中..." data-load-more="Load more">Load more</a></div>
     
 </div>
 <div id="preview"></div>
