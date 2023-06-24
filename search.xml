@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>ES6新特性解析</title>
+      <link href="/2023/06/24/js-20230624-1/"/>
+      <url>/2023/06/24/js-20230624-1/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> JavaScript </tag>
+            
+            <tag> ES6 </tag>
+            
+            <tag> const, </tag>
+            
+            <tag> var </tag>
+            
+            <tag> let </tag>
+            
+            <tag> 箭头函数与function函数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CSS实现元素水平垂直居中</title>
       <link href="/2023/06/24/css-20230624-1/"/>
       <url>/2023/06/24/css-20230624-1/</url>

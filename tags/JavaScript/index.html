@@ -135,13 +135,13 @@
             June 24, 2023
         </p>
         <h3 class="post-title animated fadeInDown">
-            <a href="/2023/06/24/js-20230624/" title="事件循环" class="posttitle">事件循环</a></h3>
+            <a href="/2023/06/24/js-20230624-1/" title="ES6新特性解析" class="posttitle">ES6新特性解析</a></h3>
         
         <p class="post-count animated fadeInDown">
             
             <span>
                 <b class="iconfont icon-text2"></b> <i>Words count</i>
-                852
+                0
             </span>
             
             
@@ -154,13 +154,13 @@
         </p>
         
         
-        <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" rel="tag">事件循环</a></li></ul>
+        <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/const/" rel="tag">const,</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/let/" rel="tag">let</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/var/" rel="tag">var</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%8Efunction%E5%87%BD%E6%95%B0/" rel="tag">箭头函数与function函数</a></li></ul>
         
         <div class="md-content animated fadeIn">
             
-            <h1 id="浏览器中的事件循环（EventLoop）"><a href="#浏览器中的事件循环（EventLoop）" class="headerlink" title="浏览器中的事件循环（EventLoop）"></a>浏览器中的事件循环（EventLoop）</h1><h2 id="微任务与宏任务"><a href="#微任务与宏任务" class="headerlink" title="微任务与宏任务"></a>微任务与宏任务</h2><p>JS是单线程的，为了防止一个函数执行时间过长阻塞后面的代码，所以会先将同步代码压入执行栈中，依次执行，将异步代码推入异步队列，异步队列又分为宏任务...</p>
             
-            <span class="read-more"><a href="/2023/06/24/js-20230624/" title="Read article" class="posttitle">Read article</a>
+            
+            <span class="read-more"><a href="/2023/06/24/js-20230624-1/" title="Read article" class="posttitle">Read article</a>
                 <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
@@ -181,6 +181,53 @@
 
     <div id="primary">
         
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            June 24, 2023
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2023/06/24/js-20230624/" title="事件循环" class="posttitle">事件循环</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        852
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        1 mins.
+                    </span>
+                
+                
+            </p>
+            
+                <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF/" rel="tag">事件循环</a></li></ul>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <h1 id="浏览器中的事件循环（EventLoop）"><a href="#浏览器中的事件循环（EventLoop）" class="headerlink" title="浏览器中的事件循环（EventLoop）"></a>浏览器中的事件循环（EventLoop）</h1><h2 id="微任务与宏任务"><a href="#微任务与宏任务" class="headerlink" title="微任务与宏任务"></a>微任务与宏任务</h2><p>JS是单线程的，为了防止一个函数执行时间过长阻塞后面的代码，所以会先将同步代码压入执行栈中，依次执行，将异步代码推入异步队列，异步队列又分为宏任务队列和微任务队列，因为宏任务队列的执行时间较长，所以<strong>微任务队列要优先于宏任务队列</strong>。</p>
+<p>微任务，是语言提供的，Promise.then，MutationObserver</p>
+<p>宏任务，是宿主环境提供的，比如浏览器，script主代码块，setImmediate setTimeout，setInterval</p>
+<p>事...</p>
+            
+            <span class="read-more"><a href="/2023/06/24/js-20230624/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
 <div class="post" id="post">
     <div class="post-cover animated fadeIn" style="
             background-image:
