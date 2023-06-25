@@ -5,15 +5,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>前端跨域问题 - Craig&#39;s Blog</title>
+    <title>浏览器的缓存机制 - Craig&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="CraigGeng Blog,"> 
-    <meta name="description" content="CraigBlog 耿嘉宁的博客,聊聊跨域问题起源跨域问题的产生源于浏览器的同源策略，浏览器要求网页只能够获取与自身来源同源的资源。同源代表着协议，域名与端口均要相同
-问题跨域问题会导致以下三个问题：
+    <meta name="description" content="CraigBlog 耿嘉宁的博客,浏览器的缓存机制
 
-Cookie、LocalSt,"> 
+浏览器每次发起请求，都会先在浏览器缓存中查找该请求的结果以及缓存标识
+浏览器每次拿到返回的请求结果都会将该结果和缓存标识存入浏览器缓存中
+
+以上两点结论就是浏览器缓存机制的关键，,"> 
     <meta name="author" content="Craig Geng"> 
     <link rel="alternative" href="atom.xml" title="Craig&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/website_icon.png"> 
@@ -77,7 +79,7 @@ Cookie、LocalSt,">
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/website_icon.png" alt="" data-url="http://example.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">前端跨域问题</h3>
+        <h3 class="subtitle">浏览器的缓存机制</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -109,22 +111,22 @@ Cookie、LocalSt,">
                 
                 <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                June 24, 2023
+                June 25, 2023
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2023/06/24/web-20230624/" title="前端跨域问题" class="">前端跨域问题</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2023/06/25/web-20230625/" title="浏览器的缓存机制" class="">浏览器的缓存机制</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    1.7k
+                    3.1k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    2 mins.
+                    3 mins.
                 </span>
                 
                 
@@ -137,7 +139,7 @@ Cookie、LocalSt,">
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%B7%A8%E5%9F%9F/" rel="tag">跨域</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98/" rel="tag">协商缓存</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%BC%BA%E5%88%B6%E7%BC%93%E5%AD%98/" rel="tag">强制缓存</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6/" rel="tag">缓存机制</a></li></ul>
             
         </div>
     </div>
@@ -158,46 +160,38 @@ Cookie、LocalSt,">
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h1 id="聊聊跨域问题"><a href="#聊聊跨域问题" class="headerlink" title="聊聊跨域问题"></a>聊聊跨域问题</h1><h2 id="起源"><a href="#起源" class="headerlink" title="起源"></a>起源</h2><p>跨域问题的产生源于浏览器的同源策略，浏览器要求网页只能够获取与自身来源同源的资源。同源代表着协议，域名与端口均要相同</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>跨域问题会导致以下三个问题：</p>
-<ol>
-<li>Cookie、LocalStorage 和 IndexDB 无法读取 </li>
-<li>DOM 和 Js对象无法获得</li>
-<li>AJAX 请求不能发送</li>
-</ol>
-<h2 id="解决方式"><a href="#解决方式" class="headerlink" title="解决方式"></a>解决方式</h2><ol>
-<li><p>JSONP(JSON with Padding) 传参一个回调函数名给后端，方便后端返回时执行这个在前端定义的回调函数，并在script标签内设置一个回调执行函数</p>
-<p>但是缺点明显：只能实现get一种请求。</p>
-<p>服务端要设置Content-Type为application&#x2F;json，并获取callback参数值</p>
-</li>
-<li><p>跨域资源共享（CORS）</p>
+            <h1 id="浏览器的缓存机制"><a href="#浏览器的缓存机制" class="headerlink" title="浏览器的缓存机制"></a>浏览器的缓存机制</h1><p><img src="/Users/gengjianing/blog/source/images/web_20230625.png" alt="web_20230625"></p>
 <ul>
-<li>普通跨域请求：只服务端设置Access-Control-Allow-Origin即可，前端无须设置，若要带cookie请求：前后端都需要设置。Access-Control-Allow-Credentials，允许前端带认证cookie：启用此项后，上面的域名不能为’*’，必须指定具体的域名，否则浏览器会提示</li>
+<li>浏览器每次发起请求，都会<code>先在浏览器缓存中查找该请求的结果以及缓存标识</code></li>
+<li>浏览器每次拿到返回的请求结果都会<code>将该结果和缓存标识存入浏览器缓存中</code></li>
 </ul>
-</li>
-<li><p>nginx代理跨域</p>
-</li>
+<p>以上两点结论就是浏览器缓存机制的关键，他确保了每个请求的缓存存入与读取，只要我们再理解浏览器缓存的使用规则，那么所有的问题就迎刃而解了。为了方便理解，这里根据是否需要向服务器重新发起HTTP请求将缓存过程分为两个部分，分别是<code>强制缓存</code>和<code>协商缓存</code>。</p>
+<h2 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h2><p><code>强制缓存就是向浏览器缓存查找该请求结果，并根据该结果的缓存规则来决定是否使用该缓存结果的过程。</code>当浏览器向服务器发起请求时，服务器会将缓存规则放入HTTP响应报文的HTTP头中和请求结果一起返回给浏览器，控制强制缓存的字段分别是 <code>Expires</code> 和 <code>Cache-Control</code>，其中Cache-Control优先级比Expires高。</p>
+<p>强制缓存的情况主要有三种(暂不分析协商缓存过程)，如下：</p>
+<ol>
+<li>不存在该缓存结果和缓存标识，强制缓存失效，则直接向服务器发起请求（跟第一次发起请求一致）。</li>
+<li>存在该缓存结果和缓存标识，但该结果已失效，强制缓存失效，则使用协商缓存。</li>
+<li>存在该缓存结果和缓存标识，且该结果尚未失效，强制缓存生效，直接返回该结果</li>
 </ol>
-<p><strong>nginx反向代理接口跨域</strong></p>
-<p>跨域原理： 同源策略是浏览器的安全策略，不是HTTP协议的一部分。服务器端调用HTTP接口只是使用HTTP协议，不会执行JS脚本，不需要同源策略，也就不存在跨越问题。</p>
-<p>实现思路：通过nginx配置一个代理服务器（域名与domain1相同，端口不同）做跳板机，反向代理访问domain2接口，并且可以顺便修改cookie中domain信息，方便当前域cookie写入，实现跨域登录。</p>
-<p>nginx具体配置：</p>
-<pre><code class="nginx">#proxy服务器
-server &#123;
-    listen       81;
-    server_name  www.domain1.com;
-
-    location / &#123;
-        proxy_pass   http://www.domain2.com:8080;  #反向代理
-        proxy_cookie_domain www.domain2.com www.domain1.com; #修改cookie里域名
-        index  index.html index.htm;
-
-        # 当用webpack-dev-server等中间件代理接口访问nginx时，此时无浏览器参与，故没有同源限制，下面的跨域配置可不启用
-        add_header Access-Control-Allow-Origin http://www.domain1.com;  #当前端只跨域不带cookie时，可为*
-        add_header Access-Control-Allow-Credentials true;
-    &#125;
-&#125;
-</code></pre>
+<h6 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h6><p>Expires是HTTP&#x2F;1.0控制网页缓存的字段，其值为服务器返回该请求结果<code>缓存的到期时间</code>，即再次发起该请求时，如果客户端的时间小于Expires的值时，直接使用缓存结果。</p>
+<h5 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h5><p>在HTTP&#x2F;1.1中，Cache-Control是最重要的规则，主要用于控制网页缓存，主要取值为：</p>
+<ul>
+<li>public：所有内容都将被缓存（客户端和代理服务器都可缓存）</li>
+<li>private：所有内容只有客户端可以缓存，Cache-Control的默认取值</li>
+<li>no-cache：客户端缓存内容，但是是否使用缓存则需要经过协商缓存来验证决定</li>
+<li>no-store：所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存</li>
+<li>max-age&#x3D;xxx (xxx is numeric)：缓存内容将在xxx秒后失效</li>
+</ul>
+<h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><p><code>协商缓存就是强制缓存失效后，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程</code>，同样，协商缓存的标识也是在响应报文的HTTP头中和请求结果一起返回给浏览器的，控制协商缓存的字段分别有：<code>Last-Modified / If-Modified-Since</code> 和 <code>Etag / If-None-Match</code>，其中Etag &#x2F; If-None-Match的优先级比Last-Modified &#x2F; If-Modified-Since高。协商缓存主要有以下两种情况：</p>
+<ol>
+<li>协商缓存生效，返回304</li>
+<li>协商缓存失效，返回200和请求结果结果</li>
+</ol>
+<h5 id="Last-Modified-x2F-If-Modified-Since"><a href="#Last-Modified-x2F-If-Modified-Since" class="headerlink" title="Last-Modified &#x2F; If-Modified-Since"></a>Last-Modified &#x2F; If-Modified-Since</h5><p>Last-Modified是服务器响应请求时，返回该资源文件在服务器最后被修改的时间，</p>
+<p>If-Modified-Since则是客户端再次发起该请求时，携带上次请求返回的Last-Modified值，通过此字段值告诉服务器该资源上次请求返回的最后被修改时间。服务器收到该请求，发现请求头含有If-Modified-Since字段，则会根据If-Modified-Since的字段值与该资源在服务器的最后被修改时间做对比，若服务器的资源最后被修改时间大于If-Modified-Since的字段值，则重新返回资源，状态码为200；否则则返回304，代表资源无更新，可继续使用缓存文件，</p>
+<h5 id="Etag-x2F-If-None-Match"><a href="#Etag-x2F-If-None-Match" class="headerlink" title="Etag &#x2F; If-None-Match"></a>Etag &#x2F; If-None-Match</h5><p>Etag是服务器响应请求时，返回当前资源文件的一个唯一标识(由服务器生成)</p>
+<p>通常服务器生成并返回在Etag中的验证码，常常是文件内容的哈希值或者某个其他指纹码。客户端不必了解指纹码是如何生成的，只需要在下一个请求中将其发送给服务器(浏览器默认会添加)：如果指纹码仍然一致，说明资源未被修改，服务器会返回304 Not Modified，这样我们就可以跳过下载，利用已经缓存了的资源，并且该资源会继续缓存120s。</p>
+<p>If-None-Match是客户端再次发起该请求时，携带上次请求返回的唯一标识Etag值，通过此字段值告诉服务器该资源上次请求返回的唯一标识值。服务器收到该请求后，发现该请求头中含有If-None-Match，则会根据If-None-Match的字段值与该资源在服务器的Etag值做对比，一致则返回304，代表资源无更新，继续使用缓存文件；不一致则重新返回资源文件，状态码为200，如下。</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -258,7 +252,7 @@ server &#123;
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%81%8A%E8%81%8A%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">聊聊跨域问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E6%BA%90"><span class="toc-number">1.1.</span> <span class="toc-text">起源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">解决方式</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6"><span class="toc-number">1.</span> <span class="toc-text">浏览器的缓存机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%88%B6%E7%BC%93%E5%AD%98"><span class="toc-number">1.1.</span> <span class="toc-text">强制缓存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98"><span class="toc-number">1.2.</span> <span class="toc-text">协商缓存</span></a></li></ol></li></ol>
                 </div>
             </div>
             

@@ -4,11 +4,49 @@
   
     
     <entry>
+      <title>浏览器的缓存机制</title>
+      <link href="/2023/06/25/web-20230625/"/>
+      <url>/2023/06/25/web-20230625/</url>
+      
+        <content type="html"><![CDATA[<h1 id="浏览器的缓存机制"><a href="#浏览器的缓存机制" class="headerlink" title="浏览器的缓存机制"></a>浏览器的缓存机制</h1><p><img src="/Users/gengjianing/blog/source/images/web_20230625.png" alt="web_20230625"></p><ul><li>浏览器每次发起请求，都会<code>先在浏览器缓存中查找该请求的结果以及缓存标识</code></li><li>浏览器每次拿到返回的请求结果都会<code>将该结果和缓存标识存入浏览器缓存中</code></li></ul><p>以上两点结论就是浏览器缓存机制的关键，他确保了每个请求的缓存存入与读取，只要我们再理解浏览器缓存的使用规则，那么所有的问题就迎刃而解了。为了方便理解，这里根据是否需要向服务器重新发起HTTP请求将缓存过程分为两个部分，分别是<code>强制缓存</code>和<code>协商缓存</code>。</p><h2 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h2><p><code>强制缓存就是向浏览器缓存查找该请求结果，并根据该结果的缓存规则来决定是否使用该缓存结果的过程。</code>当浏览器向服务器发起请求时，服务器会将缓存规则放入HTTP响应报文的HTTP头中和请求结果一起返回给浏览器，控制强制缓存的字段分别是 <code>Expires</code> 和 <code>Cache-Control</code>，其中Cache-Control优先级比Expires高。</p><p>强制缓存的情况主要有三种(暂不分析协商缓存过程)，如下：</p><ol><li>不存在该缓存结果和缓存标识，强制缓存失效，则直接向服务器发起请求（跟第一次发起请求一致）。</li><li>存在该缓存结果和缓存标识，但该结果已失效，强制缓存失效，则使用协商缓存。</li><li>存在该缓存结果和缓存标识，且该结果尚未失效，强制缓存生效，直接返回该结果</li></ol><h6 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h6><p>Expires是HTTP&#x2F;1.0控制网页缓存的字段，其值为服务器返回该请求结果<code>缓存的到期时间</code>，即再次发起该请求时，如果客户端的时间小于Expires的值时，直接使用缓存结果。</p><h5 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h5><p>在HTTP&#x2F;1.1中，Cache-Control是最重要的规则，主要用于控制网页缓存，主要取值为：</p><ul><li>public：所有内容都将被缓存（客户端和代理服务器都可缓存）</li><li>private：所有内容只有客户端可以缓存，Cache-Control的默认取值</li><li>no-cache：客户端缓存内容，但是是否使用缓存则需要经过协商缓存来验证决定</li><li>no-store：所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存</li><li>max-age&#x3D;xxx (xxx is numeric)：缓存内容将在xxx秒后失效</li></ul><h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><p><code>协商缓存就是强制缓存失效后，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程</code>，同样，协商缓存的标识也是在响应报文的HTTP头中和请求结果一起返回给浏览器的，控制协商缓存的字段分别有：<code>Last-Modified / If-Modified-Since</code> 和 <code>Etag / If-None-Match</code>，其中Etag &#x2F; If-None-Match的优先级比Last-Modified &#x2F; If-Modified-Since高。协商缓存主要有以下两种情况：</p><ol><li>协商缓存生效，返回304</li><li>协商缓存失效，返回200和请求结果结果</li></ol><h5 id="Last-Modified-x2F-If-Modified-Since"><a href="#Last-Modified-x2F-If-Modified-Since" class="headerlink" title="Last-Modified &#x2F; If-Modified-Since"></a>Last-Modified &#x2F; If-Modified-Since</h5><p>Last-Modified是服务器响应请求时，返回该资源文件在服务器最后被修改的时间，</p><p>If-Modified-Since则是客户端再次发起该请求时，携带上次请求返回的Last-Modified值，通过此字段值告诉服务器该资源上次请求返回的最后被修改时间。服务器收到该请求，发现请求头含有If-Modified-Since字段，则会根据If-Modified-Since的字段值与该资源在服务器的最后被修改时间做对比，若服务器的资源最后被修改时间大于If-Modified-Since的字段值，则重新返回资源，状态码为200；否则则返回304，代表资源无更新，可继续使用缓存文件，</p><h5 id="Etag-x2F-If-None-Match"><a href="#Etag-x2F-If-None-Match" class="headerlink" title="Etag &#x2F; If-None-Match"></a>Etag &#x2F; If-None-Match</h5><p>Etag是服务器响应请求时，返回当前资源文件的一个唯一标识(由服务器生成)</p><p>通常服务器生成并返回在Etag中的验证码，常常是文件内容的哈希值或者某个其他指纹码。客户端不必了解指纹码是如何生成的，只需要在下一个请求中将其发送给服务器(浏览器默认会添加)：如果指纹码仍然一致，说明资源未被修改，服务器会返回304 Not Modified，这样我们就可以跳过下载，利用已经缓存了的资源，并且该资源会继续缓存120s。</p><p>If-None-Match是客户端再次发起该请求时，携带上次请求返回的唯一标识Etag值，通过此字段值告诉服务器该资源上次请求返回的唯一标识值。服务器收到该请求后，发现该请求头中含有If-None-Match，则会根据If-None-Match的字段值与该资源在服务器的Etag值做对比，一致则返回304，代表资源无更新，继续使用缓存文件；不一致则重新返回资源文件，状态码为200，如下。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 浏览器 </tag>
+            
+            <tag> 缓存机制 </tag>
+            
+            <tag> 强制缓存 </tag>
+            
+            <tag> 协商缓存 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>节流与防抖</title>
+      <link href="/2023/06/24/js-20230624-2/"/>
+      <url>/2023/06/24/js-20230624-2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="节流与防抖"><a href="#节流与防抖" class="headerlink" title="节流与防抖"></a>节流与防抖</h1><p><strong>函数防抖（debounce）</strong> <strong>函数节流（throttle）</strong> 都是为了限制函数的执行频次，以优化函数触发频率过高导致的响应速度跟不上触发频率，出现延迟或卡顿的现象。</p><h2 id="防抖（Debounce）"><a href="#防抖（Debounce）" class="headerlink" title="防抖（Debounce）"></a>防抖（Debounce）</h2><p><strong>防抖：</strong> 触发高频事件，n秒后，函数会执行一次，如果n秒内高频事件再次被触发，则重新计算时间。</p><p>如下图，持续触发scroll事件时，并不执行handle函数，当1000毫秒内没有触发scroll事件时，才会执行handle函数。</p><p><img src="/../images/js_20230624_1.png" alt="js_20230624_1"></p><pre><code class="javascript">function debounce(fn, delay)&#123;    let timer = null    return function() &#123;        if(timer) clearTimeout(timer)             timer = setTimeout(() =&gt; &#123;            fn.apply(this, arguments);            timer = null        &#125;, delay)    &#125;&#125;</code></pre><h2 id="节流（throttle）"><a href="#节流（throttle）" class="headerlink" title="节流（throttle）"></a>节流（throttle）</h2><p><strong>节流：</strong>高频事件触发，但在n秒内只会执行一次真正的事件处理函数，所以节流会稀释函数的执行频率。原理是通过判断是否有延迟调用函数未执行。</p><p>如下图，持续触发scroll事件时，并不立即执行handle函数，每隔1000毫秒才会执行一次handle函数。</p><p><img src="/../images/js_20230624_2.png" alt="js_20230624_2"></p><pre><code class="javascript">function throttle(fn, delay)&#123;  let timer = null  return function()&#123;    if(timer) return    timer = setTimeout(()=&gt;&#123;      fn.apply(this, arguments)      timer = null    &#125;,delay)  &#125;&#125;</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ES6新特性解析</title>
       <link href="/2023/06/24/js-20230624-1/"/>
       <url>/2023/06/24/js-20230624-1/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h1 id="ES6新特性解析"><a href="#ES6新特性解析" class="headerlink" title="ES6新特性解析"></a>ES6新特性解析</h1><h2 id="ES6语法中箭头函数-x3D-gt-与function的区别？"><a href="#ES6语法中箭头函数-x3D-gt-与function的区别？" class="headerlink" title="ES6语法中箭头函数()&#x3D;&gt;{} 与function的区别？"></a>ES6语法中箭头函数()&#x3D;&gt;{} 与function的区别？</h2><ol><li><strong>this的指向</strong>：使用<strong>function</strong>定义的函数，this的指向随着调用环境的变化而<strong>变化的</strong>，而<strong>箭头函数</strong>中的this指向是<strong>固定不变的</strong>，永远指向它定义时的上层作用域中的this，即一直指向的是定义函数的环境</li><li><strong>构造函数</strong>：function是可以定义构造函数的，而箭头函数是不行的。</li><li><strong>变量提升</strong>：由于js的内存机制，function的级别最高，而用箭头函数定义函数的时候，需要var(let const定义的时候更不必说)关键词，而var所定义的变量不能得到变量提升。<strong>故箭头函数一定要定义于调用之前！</strong>（function不用）</li><li>箭头函数只能声明<strong>匿名函数</strong>可通过表达式让函数具名，function既可以声明匿名也可由声明具名函数</li></ol><h2 id="var、let、const的区别？"><a href="#var、let、const的区别？" class="headerlink" title="var、let、const的区别？"></a>var、let、const的区别？</h2><ol><li><p><strong>作用域</strong>：<strong>let</strong>和<strong>const</strong>具有块级作用域，<strong>var</strong>不存在块级作用域,可以跨块访问, 不能跨函数访问。<strong>var出来的变量是全局的，但是不能跨函数访问</strong></p></li><li><p><strong>变量提升</strong>：什么是变量提升？变量能在声明之前使用，就是变量提升。<strong>var存在变量提升，let和const不存在变量提升</strong> var在js中是支持预解析的声明出来的就不会报错是undefined，let，const就会报错</p></li><li><p><strong>全局属性</strong>：浏览器的全局对象是window。var声明的变量为全局变量，并且会将该变量添加为全局对象的属性（window.a 可以访问到），但是let和const不会</p></li><li><p><strong>重复声明</strong>：let const不可重复声明，var可以只会记录最后一个值。</p></li><li><p><strong>暂时性死区</strong>：在使用let、const命令声明变量之前，该变量都是不可用的。这在语法上，称为<strong>暂时性死区</strong>。使用var声明的变量不存在暂时性死区</p></li><li><p><strong>初始值</strong>：<strong>在变量声明时，var 和 let 可以不用设置初始值。而const声明变量必须设置初始值。</strong></p></li><li><p><strong>指针指向</strong>：let和const都是ES6新语法， let创建的变量是可以更改指针指向（可以重新赋值）。但const声明的变量是不允许改变指针的指向。</p></li><li><p><strong>应用场景</strong>：</p><p>块级作用域解决了ES5中的两个问题：</p><ul><li>内层变量可能覆盖外层变量</li><li>用来计数的循环变量泄露为全局变量</li></ul><p><strong>应用场景：以后声明变量使用 let 就对了</strong></p><p><strong>应用场景：声明对象类型使用 const，非对象类型声明选择 let</strong></p><p><strong>没有特殊情况就不要用var了</strong></p></li></ol>]]></content>
       
       
       
@@ -24,7 +62,9 @@
             
             <tag> let </tag>
             
-            <tag> 箭头函数与function函数 </tag>
+            <tag> 箭头函数 </tag>
+            
+            <tag> function函数 </tag>
             
         </tags>
       
@@ -37,7 +77,7 @@
       <link href="/2023/06/24/css-20230624-1/"/>
       <url>/2023/06/24/css-20230624-1/</url>
       
-        <content type="html"><![CDATA[<h1 id="CSS实现元素水平垂直居中"><a href="#CSS实现元素水平垂直居中" class="headerlink" title="CSS实现元素水平垂直居中"></a>CSS实现元素水平垂直居中</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul><li>已知元素宽高<ol><li>absolute + 负margin</li><li>absolute + margin auto</li><li>absolute + calc（50% - 1&#x2F;2 width | height）</li></ol></li><li>未知元素宽高<ol><li>父元素Flex justify-content align-items</li><li>父元素Grid 子元素 justify-self align-self</li><li>Absolute transform:translate(-50%,-50%)</li></ol></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="CSS实现元素水平垂直居中"><a href="#CSS实现元素水平垂直居中" class="headerlink" title="CSS实现元素水平垂直居中"></a>CSS实现元素水平垂直居中</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul><li>已知元素宽高<ul><li>父元素相对定位</li><li>absolute + 负margin</li><li>absolute + margin auto</li><li>absolute + calc（50% - 1&#x2F;2 width | height）</li></ul></li><li>未知元素宽高<ol><li>父元素Flex justify-content align-items</li><li>父元素Grid 子元素 justify-self align-self</li><li>Absolute transform:translate(-50%,-50%)</li></ol></li></ul>]]></content>
       
       
       
@@ -184,6 +224,19 @@
             <tag> 面试题 </tag>
             
         </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2023/06/15/Note_Web&amp;Browser/"/>
+      <url>/2023/06/15/Note_Web&amp;Browser/</url>
+      
+        <content type="html"><![CDATA[<h1 id="网络与浏览器"><a href="#网络与浏览器" class="headerlink" title="网络与浏览器"></a>网络与浏览器</h1><h2 id="1-浏览器在输入网址到显示网页的过程"><a href="#1-浏览器在输入网址到显示网页的过程" class="headerlink" title="1.浏览器在输入网址到显示网页的过程"></a>1.浏览器在输入网址到显示网页的过程</h2><ol><li>用户输入网址：用户在浏览器的地址栏中输入网址，例如：”<a href="http://www.example.com"./">www.example.com"。</a></li><li>DNS解析：浏览器会检查本地缓存中是否有与该网址对应的IP地址，如果没有，则会发送DNS（Domain Name System）请求到本地DNS服务器，以获取网址对应的IP地址。如果本地DNS服务器没有该记录，它会向其他DNS服务器发送请求，直到找到对应的IP地址。</li><li>建立连接：浏览器使用获取到的IP地址，通过TCP&#x2F;IP协议与服务器建立连接。这个过程通常涉及与服务器的三次握手，确保浏览器和服务器之间建立可靠的连接。</li><li>发送HTTP请求：一旦与服务器建立连接，浏览器会发送一个HTTP请求，其中包含了请求的类型（GET、POST等）、网址、以及其他附加信息，例如浏览器的信息、Cookie等。</li><li>服务器处理请求：服务器接收到浏览器发送的请求后，会根据请求的内容进行相应的处理。这可能包括读取请求中的数据、执行相应的代码、查询数据库等。</li><li>服务器发送响应：服务器处理完请求后，会生成一个HTTP响应，其中包含了所请求的网页内容以及其他相关信息。响应中的内容通常是一个HTML文档，但也可能包含其他资源，例如CSS样式表、JavaScript脚本、图像等。</li><li>接收响应：浏览器接收到服务器发送的响应后，会开始处理响应。如果响应中包含了其他资源的引用（例如CSS和JavaScript文件），浏览器会继续发送请求来获取这些资源。</li><li>渲染页面：浏览器使用接收到的HTML文档和其他资源，开始解析和渲染页面。它会解析HTML结构，构建DOM（Document Object Model）树，并根据CSS样式对页面进行布局和渲染。如果页面中包含JavaScript代码，浏览器还会执行这些代码。</li><li>显示页面：最后，浏览器会将渲染好的页面显示给用户。它会将页面的内容呈现在浏览器窗口中，并处理用户与页面的交互，例如点击链接、填写表单等</li></ol><h2 id="2-TCP三次握手"><a href="#2-TCP三次握手" class="headerlink" title="2.TCP三次握手"></a>2.TCP三次握手</h2><p>TCP三次握手是建立TCP连接时使用的一种协议，用于确保客户端和服务器之间建立可靠的连接。以下是TCP三次握手的步骤：</p><ol><li>第一次握手（SYN）：<ul><li>客户端发送一个带有SYN（同步序列编号）标志的TCP包给服务器。</li><li>这表示客户端请求与服务器建立连接，并指定一个初始的序列号（用于数据传输的顺序标记）。</li></ul></li><li>第二次握手（SYN-ACK）：<ul><li>服务器接收到客户端的请求后，会发送一个带有SYN和ACK（确认序列编号）标志的TCP包给客户端，ACK表示确认客户端的SYN，SYN也发送自己的初始序列号。</li><li>这表示服务器同意建立连接，并确认客户端的序列号，并指定自己的初始序列号。</li></ul></li><li>第三次握手（ACK）：<ul><li>客户端接收到服务器的响应后，会发送一个带有ACK标志的TCP包给服务器。</li><li>这表示客户端确认服务器的序列号，并且连接已经建立。</li><li>从此时开始，客户端和服务器可以开始进行数据传输。</li></ul></li></ol><p>通过这个三次握手的过程，客户端和服务器能够确保彼此都收到了对方的请求和确认，并且双方都知道了对方的初始序列号。这种握手过程可以防止连接建立失败或者无效连接的情况发生，并提供了一定的可靠性。</p>]]></content>
+      
+      
       
     </entry>
     

@@ -10,7 +10,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="CraigGeng Blog,"> 
-    <meta name="description" content="CraigBlog 耿嘉宁的博客,"> 
+    <meta name="description" content="CraigBlog 耿嘉宁的博客,ES6新特性解析ES6语法中箭头函数()&amp;#x3D;&amp;gt;{} 与function的区别？
+this的指向：使用function定义的函数，this的指向随着调用环境的变化而变化的，而箭头函数中的,"> 
     <meta name="author" content="Craig Geng"> 
     <link rel="alternative" href="atom.xml" title="Craig&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/website_icon.png"> 
@@ -115,13 +116,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    0
+                    2k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    1 mins.
+                    2 mins.
                 </span>
                 
                 
@@ -134,7 +135,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/const/" rel="tag">const,</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/let/" rel="tag">let</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/var/" rel="tag">var</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%8Efunction%E5%87%BD%E6%95%B0/" rel="tag">箭头函数与function函数</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/ES6/" rel="tag">ES6</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/const/" rel="tag">const,</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/function%E5%87%BD%E6%95%B0/" rel="tag">function函数</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/let/" rel="tag">let</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/var/" rel="tag">var</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" rel="tag">箭头函数</a></li></ul>
             
         </div>
     </div>
@@ -155,7 +156,39 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            
+            <h1 id="ES6新特性解析"><a href="#ES6新特性解析" class="headerlink" title="ES6新特性解析"></a>ES6新特性解析</h1><h2 id="ES6语法中箭头函数-x3D-gt-与function的区别？"><a href="#ES6语法中箭头函数-x3D-gt-与function的区别？" class="headerlink" title="ES6语法中箭头函数()&#x3D;&gt;{} 与function的区别？"></a>ES6语法中箭头函数()&#x3D;&gt;{} 与function的区别？</h2><ol>
+<li><strong>this的指向</strong>：使用<strong>function</strong>定义的函数，this的指向随着调用环境的变化而<strong>变化的</strong>，而<strong>箭头函数</strong>中的this指向是<strong>固定不变的</strong>，永远指向它定义时的上层作用域中的this，即一直指向的是定义函数的环境</li>
+<li><strong>构造函数</strong>：function是可以定义构造函数的，而箭头函数是不行的。</li>
+<li><strong>变量提升</strong>：由于js的内存机制，function的级别最高，而用箭头函数定义函数的时候，需要var(let const定义的时候更不必说)关键词，而var所定义的变量不能得到变量提升。<strong>故箭头函数一定要定义于调用之前！</strong>（function不用）</li>
+<li>箭头函数只能声明<strong>匿名函数</strong>可通过表达式让函数具名，function既可以声明匿名也可由声明具名函数</li>
+</ol>
+<h2 id="var、let、const的区别？"><a href="#var、let、const的区别？" class="headerlink" title="var、let、const的区别？"></a>var、let、const的区别？</h2><ol>
+<li><p><strong>作用域</strong>：<strong>let</strong>和<strong>const</strong>具有块级作用域，<strong>var</strong>不存在块级作用域,可以跨块访问, 不能跨函数访问。<strong>var出来的变量是全局的，但是不能跨函数访问</strong></p>
+</li>
+<li><p><strong>变量提升</strong>：什么是变量提升？变量能在声明之前使用，就是变量提升。<strong>var存在变量提升，let和const不存在变量提升</strong> var在js中是支持预解析的声明出来的就不会报错是undefined，let，const就会报错</p>
+</li>
+<li><p><strong>全局属性</strong>：浏览器的全局对象是window。var声明的变量为全局变量，并且会将该变量添加为全局对象的属性（window.a 可以访问到），但是let和const不会</p>
+</li>
+<li><p><strong>重复声明</strong>：let const不可重复声明，var可以只会记录最后一个值。</p>
+</li>
+<li><p><strong>暂时性死区</strong>：在使用let、const命令声明变量之前，该变量都是不可用的。这在语法上，称为<strong>暂时性死区</strong>。使用var声明的变量不存在暂时性死区</p>
+</li>
+<li><p><strong>初始值</strong>：<strong>在变量声明时，var 和 let 可以不用设置初始值。而const声明变量必须设置初始值。</strong></p>
+</li>
+<li><p><strong>指针指向</strong>：let和const都是ES6新语法， let创建的变量是可以更改指针指向（可以重新赋值）。但const声明的变量是不允许改变指针的指向。</p>
+</li>
+<li><p><strong>应用场景</strong>：</p>
+<p>块级作用域解决了ES5中的两个问题：</p>
+<ul>
+<li>内层变量可能覆盖外层变量</li>
+<li>用来计数的循环变量泄露为全局变量</li>
+</ul>
+<p><strong>应用场景：以后声明变量使用 let 就对了</strong></p>
+<p><strong>应用场景：声明对象类型使用 const，非对象类型声明选择 let</strong></p>
+<p><strong>没有特殊情况就不要用var了</strong></p>
+</li>
+</ol>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
@@ -204,13 +237,20 @@
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">13 <p>Articles</p></a></li>
+                    <li><a href="/">16 <p>Articles</p></a></li>
                     <li><a href="/categories">0 <p>Categories</p></a></li>
-                    <li><a href="/tags">23 <p>Tags</p></a></li>
+                    <li><a href="/tags">28 <p>Tags</p></a></li>
                 </ul>
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ES6%E6%96%B0%E7%89%B9%E6%80%A7%E8%A7%A3%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">ES6新特性解析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6%E8%AF%AD%E6%B3%95%E4%B8%AD%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0-x3D-gt-%E4%B8%8Efunction%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">ES6语法中箭头函数()&#x3D;&gt;{} 与function的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#var%E3%80%81let%E3%80%81const%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">var、let、const的区别？</span></a></li></ol></li></ol>
+                </div>
+            </div>
             
             
         </div>

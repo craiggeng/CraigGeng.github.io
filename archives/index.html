@@ -77,7 +77,7 @@
                 <div class="content animated fadeIn">
                     <div class="set">
                         <h1 style="text-align: center">Archived</h1>
-                        <p style="text-align: center">「 13 」</p>
+                        <p style="text-align: center">「 16 」</p>
                         <ul class="timeline timeline-centered">
                             
                             
@@ -92,13 +92,51 @@
                                 
                                 <li class="timeline-item">
                                     <div class="timeline-info">
+                                        <span class="gradient-text">June 25, 2023</span>
+                                    </div>
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <a class="timeline-title" target="_self" href="/2023/06/25/web-20230625/">浏览器的缓存机制</a>
+                                        <p>
+                                            浏览器的缓存机制
+
+浏览器每次发起请求，都会先在浏览器缓存中查找该请求的结果以及缓存标识
+浏览器每次拿到返回的请求结果都会将该结果和缓存标识存入浏览器缓存中
+
+以上两点结论就是浏览器缓存机制的关键，他确保了每个请求的缓存存入与读取，只要我们再理解浏览器缓存的使用规则，那么所有的问题就迎刃而解了。为了方便理解，这里根据是否需要向服务器重新发起HTTP请求将缓存过程分为两个部分，分别是强制缓存和...
+                                        </p>
+                                    </div>
+                                </li>
+                            
+                                
+                                <li class="timeline-item">
+                                    <div class="timeline-info">
+                                        <span class="gradient-text">June 24, 2023</span>
+                                    </div>
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <a class="timeline-title" target="_self" href="/2023/06/24/js-20230624-2/">节流与防抖</a>
+                                        <p>
+                                            节流与防抖函数防抖（debounce） 函数节流（throttle） 都是为了限制函数的执行频次，以优化函数触发频率过高导致的响应速度跟不上触发频率，出现延迟或卡顿的现象。
+防抖（Debounce）防抖： 触发高频事件，n秒后，函数会执行一次，如果n秒内高频事件再次被触发，则重新计算时间。
+如下图，持续触发scroll事件时，并不执行handle函数，当1000毫秒内没有触发scroll事件...
+                                        </p>
+                                    </div>
+                                </li>
+                            
+                                
+                                <li class="timeline-item">
+                                    <div class="timeline-info">
                                         <span class="gradient-text">June 24, 2023</span>
                                     </div>
                                     <div class="timeline-marker"></div>
                                     <div class="timeline-content">
                                         <a class="timeline-title" target="_self" href="/2023/06/24/js-20230624-1/">ES6新特性解析</a>
                                         <p>
-                                            
+                                            ES6新特性解析ES6语法中箭头函数()&#x3D;&gt;{} 与function的区别？
+this的指向：使用function定义的函数，this的指向随着调用环境的变化而变化的，而箭头函数中的this指向是固定不变的，永远指向它定义时的上层作用域中的this，即一直指向的是定义函数的环境
+构造函数：function是可以定义构造函数的，而箭头函数是不行的。
+变量提升：由于js的内存机制...
                                         </p>
                                     </div>
                                 </li>
@@ -114,6 +152,7 @@
                                         <p>
                                             CSS实现元素水平垂直居中分类
 已知元素宽高
+父元素相对定位
 absolute + 负margin
 absolute + margin auto
 absolute + calc（50% - 1&#x2F;2 width | height）
@@ -121,8 +160,7 @@ absolute + calc（50% - 1&#x2F;2 width | height）
 
 未知元素宽高
 父元素Flex justify-content align-items
-父元素Grid 子元素 justify-self align-self
-Abso...
+父元素Grid 子元素 justify-self align-s...
                                         </p>
                                     </div>
                                 </li>
@@ -227,6 +265,21 @@ JSONP(JSON with Padding) 传参一个回调函数名给后端，方便后端返.
 JavaScript 中的’&#x3D;&#x3D;’ 与’&#x3D;&#x3D;&#x3D;’定义“&#x3D;&#x3D;“叫做相等运算符，”&#x3D;&#x3D;&#x3D;”叫做严格运算符
 区别
 对于String, number这些基础类型，&#x3D;&#x3D;操作符会先把两边的变量进行类型强制转换成相同的类型再比较是否相等；&#x3D;&#x3D;&#x3D;操作符则不...
+                                        </p>
+                                    </div>
+                                </li>
+                            
+                                
+                                <li class="timeline-item">
+                                    <div class="timeline-info">
+                                        <span class="gradient-text">June 15, 2023</span>
+                                    </div>
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <a class="timeline-title" target="_self" href="/2023/06/15/Note_Web&Browser/"></a>
+                                        <p>
+                                            网络与浏览器1.浏览器在输入网址到显示网页的过程
+用户输入网址：用户在浏览器的地址栏中输入网址，例如：”
                                         </p>
                                     </div>
                                 </li>
