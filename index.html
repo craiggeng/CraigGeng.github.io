@@ -385,13 +385,13 @@
                 
                     <span>
                         <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        1.4k
+                        1.8k
                     </span>
                 
                 
                     <span>
                         <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        1 mins.
+                        2 mins.
                     </span>
                 
                 
@@ -402,10 +402,11 @@
             
                 <h1 id="节流与防抖"><a href="#节流与防抖" class="headerlink" title="节流与防抖"></a>节流与防抖</h1><p><strong>函数防抖（debounce）</strong> <strong>函数节流（throttle）</strong> 都是为了限制函数的执行频次，以优化函数触发频率过高导致的响应速度跟不上触发频率，出现延迟或卡顿的现象。</p>
 <h2 id="防抖（Debounce）"><a href="#防抖（Debounce）" class="headerlink" title="防抖（Debounce）"></a>防抖（Debounce）</h2><p><strong>防抖：</strong> 触发高频事件，n秒后，函数会执行一次，如果n秒内高频事件再次被触发，则重新计算时间。</p>
-<p>如下图，持续触发scroll事件时，并不执行handle函数，当1000毫秒内没有触发scroll事件时，才会执行handle函数。</p>
-<p></p>
-<pre><code class="javascript">function debounce(fn, delay)&#123;
-    let...</code></pre>
+<p><strong>应用场景：</strong></p>
+<ul>
+<li>登录、发短信等按钮避免用户点击太快，以致于发送了多次请求，需要防抖</li>
+<li>调整浏览器窗口大小时，resize 次数过于频繁，造成计算过多，此时需要一次到位，就用到了防抖</li>
+<li>文本编辑器实时保存，当无任何更...</li></ul>
             
             <span class="read-more"><a href="/2023/06/24/js-20230624-2/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
