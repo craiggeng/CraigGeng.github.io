@@ -4,11 +4,93 @@
   
     
     <entry>
+      <title>craigmessengerWeb实时聊天项目总结</title>
+      <link href="/2023/07/02/craigmessengerWeb%E5%AE%9E%E6%97%B6%E8%81%8A%E5%A4%A9%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/"/>
+      <url>/2023/07/02/craigmessengerWeb%E5%AE%9E%E6%97%B6%E8%81%8A%E5%A4%A9%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/</url>
+      
+        <content type="html"><![CDATA[<h1 id="CraigMessenger——Web实时聊天项目总结"><a href="#CraigMessenger——Web实时聊天项目总结" class="headerlink" title="CraigMessenger——Web实时聊天项目总结"></a>CraigMessenger——Web实时聊天项目总结</h1><h2 id="项目简述："><a href="#项目简述：" class="headerlink" title="项目简述："></a>项目简述：</h2><p>基于PusherJS库的Web端实时聊天项目</p><h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><p>React Next.js13 Next-Auth Cloudinary Pusher-js Prisma MongoDB</p><h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ol><li><p><strong>登陆</strong> </p><p>使用Next-Auth验证，普通账号密码，社交媒体Github以及Google登陆</p></li><li><p>实时聊天</p><p>整体的实时通信都是用Pusher来实现的，pusher底层是基于WebSocket来实现的。</p><p>他提供了基于事件的API接口，并且易于查询频道情况，在线用户等常用信息。并且提供了端到端的信息加密，保证了</p><p>在使用前要现在官网注册账号并申请APPid。</p><p>在使用时进行配置在服务端进行配置</p></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> CraigMessenger </tag>
+            
+            <tag> Web端IM聊天 </tag>
+            
+            <tag> PusherJS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>craigbnb民宿预定项目总结</title>
+      <link href="/2023/07/02/craigbnb%E6%B0%91%E5%AE%BF%E9%A2%84%E5%AE%9A%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/"/>
+      <url>/2023/07/02/craigbnb%E6%B0%91%E5%AE%BF%E9%A2%84%E5%AE%9A%E9%A1%B9%E7%9B%AE%E6%80%BB%E7%BB%93/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode739_每日温度</title>
+      <link href="/2023/07/01/Leetcode739-%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/"/>
+      <url>/2023/07/01/Leetcode739-%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Leetcode739-每日温度"><a href="#Leetcode739-每日温度" class="headerlink" title="Leetcode739.每日温度"></a>Leetcode739.每日温度</h1><h2 id="❓问题"><a href="#❓问题" class="headerlink" title="❓问题"></a>❓问题</h2><p>请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 0 来代替。</p><p>例如，给定一个列表 temperatures &#x3D; [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。</p><p>提示：气温 列表长度的范围是 [1, 30000]。每个气温的值的均为华氏度，都是在 [30, 100] 范围内的整数。</p><h2 id="💡解答"><a href="#💡解答" class="headerlink" title="💡解答"></a>💡解答</h2><p>最简单方法：暴力循环 O（n2）</p><p>改进方法：<strong>单调栈</strong></p><p>明确以下几点：</p><ol><li>单调栈里存放的元素是什么？</li></ol><p>​——单调栈里只需要存放元素的下标i就可以了，如果需要使用对应的元素，直接T[i]就可以获取。</p><ol start="2"><li>单调栈里元素是递增呢？ 还是递减呢？</li></ol><p>​——<strong>顺序的描述为 从栈头到栈底的顺序</strong>，采用递增排序</p><pre><code class="javascript">var dailyTemperatures = function(temperatures) &#123;    const n = temperatures.length;    const res = Array(n).fill(0);    const stack = [];  // 递增栈：用于存储元素右面第一个比他大的元素下标    stack.push(0);    for (let i = 1; i &lt; n; i++) &#123;        while (stack.length &amp;&amp; temperatures[i] &gt; temperatures[stack[stack.length - 1]]) &#123;            const top = stack.pop();            res[top] = i - top;        &#125;        stack.push(i);    &#125;    return res;&#125;;</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 单调栈 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Leetcode198_打家劫舍</title>
+      <link href="/2023/07/01/Leetcode198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/"/>
+      <url>/2023/07/01/Leetcode198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Leetcode198-打家劫舍"><a href="#Leetcode198-打家劫舍" class="headerlink" title="Leetcode198. 打家劫舍"></a>Leetcode198. 打家劫舍</h1><h2 id="❓问题"><a href="#❓问题" class="headerlink" title="❓问题"></a>❓问题</h2><p>请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 0 来代替。</p><p>例如，给定一个列表 temperatures &#x3D; [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。</p><p>提示：气温 列表长度的范围是 [1, 30000]。每个气温的值的均为华氏度，都是在 [30, 100] 范围内的整数。</p><h2 id="💡解答"><a href="#💡解答" class="headerlink" title="💡解答"></a>💡解答</h2><h5 id="动态规划五部曲："><a href="#动态规划五部曲：" class="headerlink" title="动态规划五部曲："></a>动态规划五部曲：</h5><ol><li><p>确定dp数组以及下标的含义</p></li><li><p>确定递推公式</p></li><li><p>dp数组如何初始化</p></li><li><p>确定遍历顺序</p></li><li><p>举例推导dp数组</p></li><li><p>确定dp数组（dp table）以及下标的含义</p></li></ol><p>**dp[i]：考虑下标i（包括i）以内的房屋，最多可以偷窃的金额为dp[i]**。</p><ol start="2"><li>确定递推公式</li></ol><p>决定dp[i]的因素就是第i房间偷还是不偷。</p><p>如果偷第i房间，那么dp[i] &#x3D; dp[i - 2] + nums[i] ，即：第i-1房一定是不考虑的，找出 下标i-2（包括i-2）以内的房屋，最多可以偷窃的金额为dp[i-2] 加上第i房间偷到的钱。</p><p>如果不偷第i房间，那么dp[i] &#x3D; dp[i - 1]，即考 虑i-1房，（<strong>注意这里是考虑，并不是一定要偷i-1房，这是很多同学容易混淆的点</strong>）</p><p>然后dp[i]取最大值，即dp[i] &#x3D; max(dp[i - 2] + nums[i], dp[i - 1]);</p><ol start="3"><li>dp数组如何初始化</li></ol><p>从递推公式dp[i] &#x3D; max(dp[i - 2] + nums[i], dp[i - 1]);可以看出，递推公式的基础就是dp[0] 和 dp[1]</p><p>从dp[i]的定义上来讲，dp[0] 一定是 nums[0]，dp[1]就是nums[0]和nums[1]的最大值即：dp[1] &#x3D; max(nums[0], nums[1]);</p><p>代码如下：</p><pre><code class="javascript">// 数组长度const len = nums.length;// dp数组初始化const dp = [nums[0], Math.max(nums[0], nums[1])];</code></pre><ol start="4"><li>确定遍历顺序</li></ol><p>dp[i] 是根据dp[i - 2] 和 dp[i - 1] 推导出来的，那么一定是从前到后遍历！</p><p>代码如下：</p><pre><code class="javascript">for (int i = 2; i &lt; nums.size(); i++) &#123;    dp[i] = max(dp[i - 2] + nums[i], dp[i - 1]);&#125;</code></pre><ol start="5"><li>举例推导dp数组</li></ol><p>以示例二，输入[2,7,9,3,1]为例。</p><p><img src="https://code-thinking-1253855093.file.myqcloud.com/pics/20210221170954115.jpg" alt="198.打家劫舍"></p><p>红框dp[nums.size() - 1]为结果。</p><p>代码：</p><pre><code class="javascript">const rob = nums =&gt; &#123;    // 数组长度    const len = nums.length;    // dp数组初始化    const dp = [nums[0], Math.max(nums[0], nums[1])];    // 从下标2开始遍历    for (let i = 2; i &lt; len; i++) &#123;        dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);    &#125;    return dp[len - 1];&#125;;</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Leetcode </tag>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 动态规划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>浏览器的缓存机制</title>
       <link href="/2023/06/25/web-20230625/"/>
       <url>/2023/06/25/web-20230625/</url>
       
-        <content type="html"><![CDATA[<h1 id="浏览器的缓存机制"><a href="#浏览器的缓存机制" class="headerlink" title="浏览器的缓存机制"></a>浏览器的缓存机制</h1><p><img src="/Users/gengjianing/blog/source/images/web_20230625.png" alt="web_20230625"></p><ul><li>浏览器每次发起请求，都会<code>先在浏览器缓存中查找该请求的结果以及缓存标识</code></li><li>浏览器每次拿到返回的请求结果都会<code>将该结果和缓存标识存入浏览器缓存中</code></li></ul><p>以上两点结论就是浏览器缓存机制的关键，他确保了每个请求的缓存存入与读取，只要我们再理解浏览器缓存的使用规则，那么所有的问题就迎刃而解了。为了方便理解，这里根据是否需要向服务器重新发起HTTP请求将缓存过程分为两个部分，分别是<code>强制缓存</code>和<code>协商缓存</code>。</p><h2 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h2><p><code>强制缓存就是向浏览器缓存查找该请求结果，并根据该结果的缓存规则来决定是否使用该缓存结果的过程。</code>当浏览器向服务器发起请求时，服务器会将缓存规则放入HTTP响应报文的HTTP头中和请求结果一起返回给浏览器，控制强制缓存的字段分别是 <code>Expires</code> 和 <code>Cache-Control</code>，其中Cache-Control优先级比Expires高。</p><p>强制缓存的情况主要有三种(暂不分析协商缓存过程)，如下：</p><ol><li>不存在该缓存结果和缓存标识，强制缓存失效，则直接向服务器发起请求（跟第一次发起请求一致）。</li><li>存在该缓存结果和缓存标识，但该结果已失效，强制缓存失效，则使用协商缓存。</li><li>存在该缓存结果和缓存标识，且该结果尚未失效，强制缓存生效，直接返回该结果</li></ol><h6 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h6><p>Expires是HTTP&#x2F;1.0控制网页缓存的字段，其值为服务器返回该请求结果<code>缓存的到期时间</code>，即再次发起该请求时，如果客户端的时间小于Expires的值时，直接使用缓存结果。</p><h5 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h5><p>在HTTP&#x2F;1.1中，Cache-Control是最重要的规则，主要用于控制网页缓存，主要取值为：</p><ul><li>public：所有内容都将被缓存（客户端和代理服务器都可缓存）</li><li>private：所有内容只有客户端可以缓存，Cache-Control的默认取值</li><li>no-cache：客户端缓存内容，但是是否使用缓存则需要经过协商缓存来验证决定</li><li>no-store：所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存</li><li>max-age&#x3D;xxx (xxx is numeric)：缓存内容将在xxx秒后失效</li></ul><h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><p><code>协商缓存就是强制缓存失效后，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程</code>，同样，协商缓存的标识也是在响应报文的HTTP头中和请求结果一起返回给浏览器的，控制协商缓存的字段分别有：<code>Last-Modified / If-Modified-Since</code> 和 <code>Etag / If-None-Match</code>，其中Etag &#x2F; If-None-Match的优先级比Last-Modified &#x2F; If-Modified-Since高。协商缓存主要有以下两种情况：</p><ol><li>协商缓存生效，返回304</li><li>协商缓存失效，返回200和请求结果结果</li></ol><h5 id="Last-Modified-x2F-If-Modified-Since"><a href="#Last-Modified-x2F-If-Modified-Since" class="headerlink" title="Last-Modified &#x2F; If-Modified-Since"></a>Last-Modified &#x2F; If-Modified-Since</h5><p>Last-Modified是服务器响应请求时，返回该资源文件在服务器最后被修改的时间，</p><p>If-Modified-Since则是客户端再次发起该请求时，携带上次请求返回的Last-Modified值，通过此字段值告诉服务器该资源上次请求返回的最后被修改时间。服务器收到该请求，发现请求头含有If-Modified-Since字段，则会根据If-Modified-Since的字段值与该资源在服务器的最后被修改时间做对比，若服务器的资源最后被修改时间大于If-Modified-Since的字段值，则重新返回资源，状态码为200；否则则返回304，代表资源无更新，可继续使用缓存文件，</p><h5 id="Etag-x2F-If-None-Match"><a href="#Etag-x2F-If-None-Match" class="headerlink" title="Etag &#x2F; If-None-Match"></a>Etag &#x2F; If-None-Match</h5><p>Etag是服务器响应请求时，返回当前资源文件的一个唯一标识(由服务器生成)</p><p>通常服务器生成并返回在Etag中的验证码，常常是文件内容的哈希值或者某个其他指纹码。客户端不必了解指纹码是如何生成的，只需要在下一个请求中将其发送给服务器(浏览器默认会添加)：如果指纹码仍然一致，说明资源未被修改，服务器会返回304 Not Modified，这样我们就可以跳过下载，利用已经缓存了的资源，并且该资源会继续缓存120s。</p><p>If-None-Match是客户端再次发起该请求时，携带上次请求返回的唯一标识Etag值，通过此字段值告诉服务器该资源上次请求返回的唯一标识值。服务器收到该请求后，发现该请求头中含有If-None-Match，则会根据If-None-Match的字段值与该资源在服务器的Etag值做对比，一致则返回304，代表资源无更新，继续使用缓存文件；不一致则重新返回资源文件，状态码为200，如下。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="浏览器的缓存机制"><a href="#浏览器的缓存机制" class="headerlink" title="浏览器的缓存机制"></a>浏览器的缓存机制</h1><p><img src="/../images/web_20230625.png" alt="web_20230625"></p><ul><li>浏览器每次发起请求，都会<code>先在浏览器缓存中查找该请求的结果以及缓存标识</code></li><li>浏览器每次拿到返回的请求结果都会<code>将该结果和缓存标识存入浏览器缓存中</code></li></ul><p>以上两点结论就是浏览器缓存机制的关键，他确保了每个请求的缓存存入与读取，只要我们再理解浏览器缓存的使用规则，那么所有的问题就迎刃而解了。为了方便理解，这里根据是否需要向服务器重新发起HTTP请求将缓存过程分为两个部分，分别是<code>强制缓存</code>和<code>协商缓存</code>。</p><h2 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h2><p><code>强制缓存就是向浏览器缓存查找该请求结果，并根据该结果的缓存规则来决定是否使用该缓存结果的过程。</code>当浏览器向服务器发起请求时，服务器会将缓存规则放入HTTP响应报文的HTTP头中和请求结果一起返回给浏览器，控制强制缓存的字段分别是 <code>Expires</code> 和 <code>Cache-Control</code>，其中Cache-Control优先级比Expires高。</p><p>强制缓存的情况主要有三种(暂不分析协商缓存过程)，如下：</p><ol><li>不存在该缓存结果和缓存标识，强制缓存失效，则直接向服务器发起请求（跟第一次发起请求一致）。</li><li>存在该缓存结果和缓存标识，但该结果已失效，强制缓存失效，则使用协商缓存。</li><li>存在该缓存结果和缓存标识，且该结果尚未失效，强制缓存生效，直接返回该结果</li></ol><h6 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h6><p>Expires是HTTP&#x2F;1.0控制网页缓存的字段，其值为服务器返回该请求结果<code>缓存的到期时间</code>，即再次发起该请求时，如果客户端的时间小于Expires的值时，直接使用缓存结果。</p><h5 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h5><p>在HTTP&#x2F;1.1中，Cache-Control是最重要的规则，主要用于控制网页缓存，主要取值为：</p><ul><li>public：所有内容都将被缓存（客户端和代理服务器都可缓存）</li><li>private：所有内容只有客户端可以缓存，Cache-Control的默认取值</li><li>no-cache：客户端缓存内容，但是是否使用缓存则需要经过协商缓存来验证决定</li><li>no-store：所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存</li><li>max-age&#x3D;xxx (xxx is numeric)：缓存内容将在xxx秒后失效</li></ul><h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><p><code>协商缓存就是强制缓存失效后，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程</code>，同样，协商缓存的标识也是在响应报文的HTTP头中和请求结果一起返回给浏览器的，控制协商缓存的字段分别有：<code>Last-Modified / If-Modified-Since</code> 和 <code>Etag / If-None-Match</code>，其中Etag &#x2F; If-None-Match的优先级比Last-Modified &#x2F; If-Modified-Since高。协商缓存主要有以下两种情况：</p><ol><li>协商缓存生效，返回304</li><li>协商缓存失效，返回200和请求结果结果</li></ol><h5 id="Last-Modified-x2F-If-Modified-Since"><a href="#Last-Modified-x2F-If-Modified-Since" class="headerlink" title="Last-Modified &#x2F; If-Modified-Since"></a>Last-Modified &#x2F; If-Modified-Since</h5><p>Last-Modified是服务器响应请求时，返回该资源文件在服务器最后被修改的时间，</p><p>If-Modified-Since则是客户端再次发起该请求时，携带上次请求返回的Last-Modified值，通过此字段值告诉服务器该资源上次请求返回的最后被修改时间。服务器收到该请求，发现请求头含有If-Modified-Since字段，则会根据If-Modified-Since的字段值与该资源在服务器的最后被修改时间做对比，若服务器的资源最后被修改时间大于If-Modified-Since的字段值，则重新返回资源，状态码为200；否则则返回304，代表资源无更新，可继续使用缓存文件，</p><h5 id="Etag-x2F-If-None-Match"><a href="#Etag-x2F-If-None-Match" class="headerlink" title="Etag &#x2F; If-None-Match"></a>Etag &#x2F; If-None-Match</h5><p>Etag是服务器响应请求时，返回当前资源文件的一个唯一标识(由服务器生成)</p><p>通常服务器生成并返回在Etag中的验证码，常常是文件内容的哈希值或者某个其他指纹码。客户端不必了解指纹码是如何生成的，只需要在下一个请求中将其发送给服务器(浏览器默认会添加)：如果指纹码仍然一致，说明资源未被修改，服务器会返回304 Not Modified，这样我们就可以跳过下载，利用已经缓存了的资源，并且该资源会继续缓存120s。</p><p>If-None-Match是客户端再次发起该请求时，携带上次请求返回的唯一标识Etag值，通过此字段值告诉服务器该资源上次请求返回的唯一标识值。服务器收到该请求后，发现该请求头中含有If-None-Match，则会根据If-None-Match的字段值与该资源在服务器的Etag值做对比，一致则返回304，代表资源无更新，继续使用缓存文件；不一致则重新返回资源文件，状态码为200，如下。</p>]]></content>
       
       
       

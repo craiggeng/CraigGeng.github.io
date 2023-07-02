@@ -5,14 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>== 与 === - Craig&#39;s Blog</title>
+    <title>Leetcode198_打家劫舍 - Craig&#39;s Blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="CraigGeng Blog,"> 
-    <meta name="description" content="CraigBlog 耿嘉宁的博客,
-
-JavaScript 中的’&amp;#x3D;&amp;#x3D;’ 与’&amp;#x3D;&amp;#x3D;&amp;#x3D;’定义“&amp;#x3D;&amp;#x3D;“叫做相等运算符，”&amp;#x3D;&amp;#x3D;&amp;#x3D;”叫做严格,"> 
+    <meta name="description" content="CraigBlog 耿嘉宁的博客,Leetcode198. 打家劫舍❓问题请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 0 来代替。
+,"> 
     <meta name="author" content="Craig Geng"> 
     <link rel="alternative" href="atom.xml" title="Craig&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/website_icon.png"> 
@@ -76,7 +75,7 @@ JavaScript 中的’&amp;#x3D;&amp;#x3D;’ 与’&amp;#x3D;&amp;#x3D;&amp;#x3D;
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/website_icon.png" alt="" data-url="http://example.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">== 与 ===</h3>
+        <h3 class="subtitle">Leetcode198_打家劫舍</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -108,22 +107,22 @@ JavaScript 中的’&amp;#x3D;&amp;#x3D;’ 与’&amp;#x3D;&amp;#x3D;&amp;#x3D;
                 
                 <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                June 23, 2023
+                July 01, 2023
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2023/06/23/js-20230619/" title="&#x3D;&#x3D; 与 &#x3D;&#x3D;&#x3D;" class="">&#x3D;&#x3D; 与 &#x3D;&#x3D;&#x3D;</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2023/07/01/Leetcode198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/" title="Leetcode198_打家劫舍" class="">Leetcode198_打家劫舍</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    1.3k
+                    2.4k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    1 mins.
+                    2 mins.
                 </span>
                 
                 
@@ -136,7 +135,7 @@ JavaScript 中的’&amp;#x3D;&amp;#x3D;’ 与’&amp;#x3D;&amp;#x3D;&amp;#x3D;
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" rel="tag">基础知识</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">面试题</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Leetcode/" rel="tag">Leetcode</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
             
         </div>
     </div>
@@ -157,26 +156,70 @@ JavaScript 中的’&amp;#x3D;&amp;#x3D;’ 与’&amp;#x3D;&amp;#x3D;&amp;#x3D;
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <!-- ---
-title: 
-date: 2023-06-19 21:20:36
-tags: JavaScript Basic-Knowledge Interview
---- -->
-
-<h1 id="JavaScript-中的’-x3D-x3D-’-与’-x3D-x3D-x3D-’"><a href="#JavaScript-中的’-x3D-x3D-’-与’-x3D-x3D-x3D-’" class="headerlink" title="JavaScript 中的’&#x3D;&#x3D;’ 与’&#x3D;&#x3D;&#x3D;’"></a>JavaScript 中的’&#x3D;&#x3D;’ 与’&#x3D;&#x3D;&#x3D;’</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>“&#x3D;&#x3D;“叫做相等运算符，”&#x3D;&#x3D;&#x3D;”叫做严格运算符</p>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ol>
-<li>对于String, number这些基础类型，&#x3D;&#x3D;操作符会先把两边的变量进行类型强制转换成相同的类型再比较是否相等；&#x3D;&#x3D;&#x3D;操作符则不会进行类型转换，而是直接进行比较。</li>
-<li>对于array, object这些高级类型，&#x3D;&#x3D;和 &#x3D;&#x3D;&#x3D;是没有区别的，因为它们比较的是 “指针地址” 。</li>
-<li>对于基础类型和高级类型，&#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D;是有区别的；&#x3D;&#x3D;操作符会先把高级类型转换为基础类型之后，进行<strong>值的比较</strong>；&#x3D;&#x3D;&#x3D;操作符则不会进行转换，<strong>类型比较</strong>，如果不同，直接返回false</li>
+            <h1 id="Leetcode198-打家劫舍"><a href="#Leetcode198-打家劫舍" class="headerlink" title="Leetcode198. 打家劫舍"></a>Leetcode198. 打家劫舍</h1><h2 id="❓问题"><a href="#❓问题" class="headerlink" title="❓问题"></a>❓问题</h2><p>请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 0 来代替。</p>
+<p>例如，给定一个列表 temperatures &#x3D; [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。</p>
+<p>提示：气温 列表长度的范围是 [1, 30000]。每个气温的值的均为华氏度，都是在 [30, 100] 范围内的整数。</p>
+<h2 id="💡解答"><a href="#💡解答" class="headerlink" title="💡解答"></a>💡解答</h2><h5 id="动态规划五部曲："><a href="#动态规划五部曲：" class="headerlink" title="动态规划五部曲："></a>动态规划五部曲：</h5><ol>
+<li><p>确定dp数组以及下标的含义</p>
+</li>
+<li><p>确定递推公式</p>
+</li>
+<li><p>dp数组如何初始化</p>
+</li>
+<li><p>确定遍历顺序</p>
+</li>
+<li><p>举例推导dp数组</p>
+</li>
+<li><p>确定dp数组（dp table）以及下标的含义</p>
+</li>
 </ol>
-<pre><code class="javascript">examle:
-    66 == &#39;66&#39; // True
-    66 === &#39;66&#39; // False
+<p>**dp[i]：考虑下标i（包括i）以内的房屋，最多可以偷窃的金额为dp[i]**。</p>
+<ol start="2">
+<li>确定递推公式</li>
+</ol>
+<p>决定dp[i]的因素就是第i房间偷还是不偷。</p>
+<p>如果偷第i房间，那么dp[i] &#x3D; dp[i - 2] + nums[i] ，即：第i-1房一定是不考虑的，找出 下标i-2（包括i-2）以内的房屋，最多可以偷窃的金额为dp[i-2] 加上第i房间偷到的钱。</p>
+<p>如果不偷第i房间，那么dp[i] &#x3D; dp[i - 1]，即考 虑i-1房，（<strong>注意这里是考虑，并不是一定要偷i-1房，这是很多同学容易混淆的点</strong>）</p>
+<p>然后dp[i]取最大值，即dp[i] &#x3D; max(dp[i - 2] + nums[i], dp[i - 1]);</p>
+<ol start="3">
+<li>dp数组如何初始化</li>
+</ol>
+<p>从递推公式dp[i] &#x3D; max(dp[i - 2] + nums[i], dp[i - 1]);可以看出，递推公式的基础就是dp[0] 和 dp[1]</p>
+<p>从dp[i]的定义上来讲，dp[0] 一定是 nums[0]，dp[1]就是nums[0]和nums[1]的最大值即：dp[1] &#x3D; max(nums[0], nums[1]);</p>
+<p>代码如下：</p>
+<pre><code class="javascript">// 数组长度
+const len = nums.length;
+// dp数组初始化
+const dp = [nums[0], Math.max(nums[0], nums[1])];
 </code></pre>
-<h3 id="特别注意"><a href="#特别注意" class="headerlink" title="特别注意"></a>特别注意</h3><ol>
-<li>对于特殊值NaN（Not a Number），表示非数字，NaN和任何数（包括它自己）做相等比较，都会返回false，所以判断NaN最好用isNaN()函数</li>
-<li>null和undefined，两者值比较为True（&#x3D;&#x3D;），类型比较为False（&#x3D;&#x3D;&#x3D;）</li>
+<ol start="4">
+<li>确定遍历顺序</li>
 </ol>
+<p>dp[i] 是根据dp[i - 2] 和 dp[i - 1] 推导出来的，那么一定是从前到后遍历！</p>
+<p>代码如下：</p>
+<pre><code class="javascript">for (int i = 2; i &lt; nums.size(); i++) &#123;
+    dp[i] = max(dp[i - 2] + nums[i], dp[i - 1]);
+&#125;
+</code></pre>
+<ol start="5">
+<li>举例推导dp数组</li>
+</ol>
+<p>以示例二，输入[2,7,9,3,1]为例。</p>
+<p><img src="https://code-thinking-1253855093.file.myqcloud.com/pics/20210221170954115.jpg" alt="198.打家劫舍"></p>
+<p>红框dp[nums.size() - 1]为结果。</p>
+<p>代码：</p>
+<pre><code class="javascript">const rob = nums =&gt; &#123;
+    // 数组长度
+    const len = nums.length;
+    // dp数组初始化
+    const dp = [nums[0], Math.max(nums[0], nums[1])];
+    // 从下标2开始遍历
+    for (let i = 2; i &lt; len; i++) &#123;
+        dp[i] = Math.max(dp[i - 2] + nums[i], dp[i - 1]);
+    &#125;
+    return dp[len - 1];
+&#125;;
+</code></pre>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -237,7 +280,7 @@ tags: JavaScript Basic-Knowledge Interview
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript-%E4%B8%AD%E7%9A%84%E2%80%99-x3D-x3D-%E2%80%99-%E4%B8%8E%E2%80%99-x3D-x3D-x3D-%E2%80%99"><span class="toc-number">1.</span> <span class="toc-text">JavaScript 中的’&#x3D;&#x3D;’ 与’&#x3D;&#x3D;&#x3D;’</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%88%AB"><span class="toc-number">1.2.</span> <span class="toc-text">区别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E5%88%AB%E6%B3%A8%E6%84%8F"><span class="toc-number">1.2.1.</span> <span class="toc-text">特别注意</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D"><span class="toc-number">1.</span> <span class="toc-text">Leetcode198. 打家劫舍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9D%93%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">❓问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%A1%E8%A7%A3%E7%AD%94"><span class="toc-number">1.2.</span> <span class="toc-text">💡解答</span></a></li></ol></li></ol>
                 </div>
             </div>
             
