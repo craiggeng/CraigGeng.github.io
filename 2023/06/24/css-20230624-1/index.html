@@ -10,11 +10,10 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="CraigGeng Blog,"> 
-    <meta name="description" content="CraigBlog 耿嘉宁的博客,CSS实现元素水平垂直居中分类
-已知元素宽高
+    <meta name="description" content="CraigBlog 耿嘉宁的博客,CSS实现元素水平垂直居中分类已知元素宽高
 父元素相对定位
-absolute + 负margin
-absolute + margin auto topbottomleftright &amp;#x3D; ,"> 
+absolute + 负margin top50%left50% margin为子元素宽高一半
+absolute + margin aut,"> 
     <meta name="author" content="Craig Geng"> 
     <link rel="alternative" href="atom.xml" title="Craig&#39;s Blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/website_icon.png"> 
@@ -119,7 +118,7 @@ absolute + margin auto topbottomleftright &amp;#x3D; ,">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    543
+                    706
                 </span>
                 
                 
@@ -159,21 +158,19 @@ absolute + margin auto topbottomleftright &amp;#x3D; ,">
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <h1 id="CSS实现元素水平垂直居中"><a href="#CSS实现元素水平垂直居中" class="headerlink" title="CSS实现元素水平垂直居中"></a>CSS实现元素水平垂直居中</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
-<li>已知元素宽高<ul>
-<li>父元素相对定位</li>
-<li>absolute + 负margin</li>
+            <h1 id="CSS实现元素水平垂直居中"><a href="#CSS实现元素水平垂直居中" class="headerlink" title="CSS实现元素水平垂直居中"></a>CSS实现元素水平垂直居中</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="已知元素宽高"><a href="#已知元素宽高" class="headerlink" title="已知元素宽高"></a>已知元素宽高</h3><ul>
+<li>父元素相对定位<ul>
+<li>absolute + 负margin top50%left50% margin为子元素宽高一半</li>
 <li>absolute + margin auto topbottomleftright &#x3D; 0</li>
 <li>absolute + calc（50% - 1&#x2F;2 width | height）</li>
 </ul>
 </li>
-<li>未知元素宽高<ol>
+</ul>
+<h3 id="未知元素宽高"><a href="#未知元素宽高" class="headerlink" title="未知元素宽高"></a>未知元素宽高</h3><ol>
 <li>父元素Flex justify-content align-items</li>
 <li>父元素Grid 子元素 justify-self align-self</li>
 <li>Absolute transform:translate(-50%,-50%)</li>
 </ol>
-</li>
-</ul>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -234,7 +231,7 @@ absolute + margin auto topbottomleftright &amp;#x3D; ,">
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD"><span class="toc-number">1.</span> <span class="toc-text">CSS实现元素水平垂直居中</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">分类</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD"><span class="toc-number">1.</span> <span class="toc-text">CSS实现元素水平垂直居中</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%B2%E7%9F%A5%E5%85%83%E7%B4%A0%E5%AE%BD%E9%AB%98"><span class="toc-number">1.1.1.</span> <span class="toc-text">已知元素宽高</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AA%E7%9F%A5%E5%85%83%E7%B4%A0%E5%AE%BD%E9%AB%98"><span class="toc-number">1.1.2.</span> <span class="toc-text">未知元素宽高</span></a></li></ol></li></ol></li></ol>
                 </div>
             </div>
             
